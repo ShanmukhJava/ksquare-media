@@ -282,5 +282,41 @@
         }
       });
     </script>
+
+    <script>
+      document
+        .getElementById("appointmentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const service = document.getElementById("service").value;
+          const date = document.getElementById("date").value;
+          const message = document.getElementById("message").value.trim();
+
+          let emailBody = `New Appointment Booking%0D%0A%0D%0A`;
+          emailBody += `Full Name: ${encodeURIComponent(name)}%0D%0A`;
+          emailBody += `Email: ${encodeURIComponent(email)}%0D%0A`;
+          emailBody += `Phone: ${encodeURIComponent(phone)}%0D%0A`;
+          emailBody += `Service Interested: ${encodeURIComponent(
+            service
+          )}%0D%0A`;
+          emailBody += `Preferred Date: ${encodeURIComponent(date)}%0D%0A`;
+          if (message) {
+            emailBody += `Additional Info: ${encodeURIComponent(
+              message
+            )}%0D%0A`;
+          }
+
+          const recipientEmail = "srinivasshanmukha5@gmail.com"; // change this to your email
+          const subject = encodeURIComponent("New Appointment Booking");
+
+          const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${emailBody}`;
+
+          window.location.href = mailtoLink;
+        });
+    </script>
   </body>
 </html>
