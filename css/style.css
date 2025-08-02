@@ -198,8 +198,20 @@ header {
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(138, 45, 226, 0.1);
   transition: all 0.4s ease;
+
+  /* New animation properties */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeSlideDown 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
+@keyframes fadeSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 header .container {
   display: flex;
   justify-content: space-between;
@@ -380,12 +392,12 @@ header .container {
 
 .logo-tagline {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #222; /* Plain dark text, no coloring */
-  margin-top: 2px;
+  margin-top: 1px;
   margin-left: 0; /* Remove left margin for direct alignment */
   font-weight: 200;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.01px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -1343,7 +1355,7 @@ footer {
 header.scrolled {
   position: fixed;
   top: 18px;
-  left: 50%;
+  left: 15%;
   transform: translateX(-50%);
   width: 900px;
   max-width: 96vw;
@@ -1406,5 +1418,152 @@ header.scrolled .nav-links li {
   header.scrolled {
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 16px rgba(74, 0, 224, 0.08);
+  }
+}
+.floating-icons-hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+.floating-icons-hero i {
+  position: absolute;
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.95;
+  pointer-events: none;
+}
+.floating-icons-hero i:nth-child(1) {
+  left: 78%;
+  animation: fallDown 5.5s linear infinite;
+  animation-delay: 7.1s;
+}
+.floating-icons-hero i:nth-child(2) {
+  left: 56%;
+  animation: fallDown 9.3s linear infinite;
+  animation-delay: 1.4s;
+}
+.floating-icons-hero i:nth-child(3) {
+  left: 18%;
+  animation: fallDown 6.5s linear infinite;
+  animation-delay: 3.8s;
+}
+.floating-icons-hero i:nth-child(4) {
+  left: 48%;
+  animation: fallDown 7s linear infinite;
+  animation-delay: 8.1s;
+}
+.floating-icons-hero i:nth-child(5) {
+  left: 59%;
+  animation: fallDown 5.5s linear infinite;
+  animation-delay: 4.3s;
+}
+.floating-icons-hero i:nth-child(6) {
+  left: 88%;
+  animation: fallDown 8.1s linear infinite;
+  animation-delay: 7.4s;
+}
+.floating-icons-hero i:nth-child(7) {
+  left: 42%;
+  animation: fallDown 9.5s linear infinite;
+  animation-delay: 8.1s;
+}
+.floating-icons-hero i:nth-child(8) {
+  left: 8%;
+  animation: fallDown 9.4s linear infinite;
+  animation-delay: 3s;
+}
+.floating-icons-hero i:nth-child(9) {
+  left: 8%;
+  animation: fallDown 9.3s linear infinite;
+  animation-delay: 6.2s;
+}
+.floating-icons-hero i:nth-child(10) {
+  left: 38%;
+  animation: fallDown 8.2s linear infinite;
+  animation-delay: 7.4s;
+}
+.floating-icons-hero i:nth-child(11) {
+  left: 55%;
+  animation: fallDown 5.6s linear infinite;
+  animation-delay: 2s;
+}
+.floating-icons-hero i:nth-child(12) {
+  left: 90%;
+  animation: fallDown 7.1s linear infinite;
+  animation-delay: 7.8s;
+}
+.floating-icons-hero i:nth-child(13) {
+  left: 12%;
+  animation: fallDown 7.9s linear infinite;
+  animation-delay: 1.2s;
+}
+.floating-icons-hero i:nth-child(14) {
+  left: 3%;
+  animation: fallDown 6.8s linear infinite;
+  animation-delay: 7.9s;
+}
+.floating-icons-hero i:nth-child(15) {
+  left: 84%;
+  animation: fallDown 6.6s linear infinite;
+  animation-delay: 3.7s;
+}
+.floating-icons-hero i:nth-child(16) {
+  left: 69%;
+  animation: fallDown 8.2s linear infinite;
+  animation-delay: 3.3s;
+}
+.floating-icons-hero i:nth-child(17) {
+  left: 69%;
+  animation: fallDown 9.1s linear infinite;
+  animation-delay: 6s;
+}
+.floating-icons-hero i:nth-child(18) {
+  left: 41%;
+  animation: fallDown 7.7s linear infinite;
+  animation-delay: 1.5s;
+}
+.floating-icons-hero i:nth-child(19) {
+  left: 20%;
+  animation: fallDown 9.5s linear infinite;
+  animation-delay: 0s;
+}
+.floating-icons-hero i:nth-child(20) {
+  left: 8%;
+  animation: fallDown 9.1s linear infinite;
+  animation-delay: 7.7s;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+.floating-icons-hero i {
+  opacity: 0; /* start invisible */
+  animation-fill-mode: forwards; /* keep last keyframe after animation */
+}
+
+/* Updated keyframes to fade in only during fall */
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
   }
 }
