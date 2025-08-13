@@ -397,3 +397,31 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   document.head.appendChild(style);
 });
+
+// FAQ Toggle Functionality
+document.querySelectorAll(".faq-question").forEach((question) => {
+  question.addEventListener("click", () => {
+    const item = question.parentElement;
+    item.classList.toggle("active");
+  });
+});
+// Add this script to automatically update the year
+document.querySelector(
+  ".footer-bottom p"
+).innerHTML = `&copy; ${new Date().getFullYear()} KSquare Media. All rights reserved. Premier digital marketing agency.`;
+
+let lastScroll = 0;
+const header = document.querySelector("header");
+const scrollThreshold = 100; // Adjust as needed
+
+window.addEventListener("scroll", function () {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > scrollThreshold) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+
+  lastScroll = currentScroll;
+});
