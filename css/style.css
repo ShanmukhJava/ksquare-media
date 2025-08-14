@@ -559,7 +559,6 @@ header .container {
 .services {
   background-color: #fff;
 }
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -567,67 +566,62 @@ header .container {
 }
 
 .service-card {
-  background-color: #f9f9f9;
+  background-color: #fff;
   border-radius: 15px;
-  padding: 35px 30px;
+  padding: 30px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.4s ease;
   height: 100%;
-  border: 1px solid rgba(138, 45, 226, 0.05);
+  border: 1px solid #f0f0f0;
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
 .service-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-color: rgba(138, 45, 226, 0.2);
 }
 
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.service-icon img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(74, 0, 224, 0.03),
-    rgba(142, 45, 226, 0.03)
-  );
-  clip-path: circle(0% at 0% 0%);
-  transition: all 0.6s ease-out;
-  z-index: -1;
-}
-
-.service-card:hover::before {
-  clip-path: circle(150% at 0% 0%);
-}
-
-.service-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #4a00e0, #8e2de2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  color: #fff;
-  font-size: 1.8rem;
+  object-fit: contain;
 }
 
 .service-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 15px;
   color: #333;
+  font-weight: 600;
 }
 
 .service-card p {
   color: #666;
+  line-height: 1.6;
+}
+
+/* Optional: Add a subtle purple accent on hover */
+.service-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8a2de2, #4a00e0);
+  transition: width 0.3s ease;
+}
+
+.service-card:hover::after {
+  width: 100%;
 }
 
 /* Contact Section */
@@ -1693,4 +1687,64 @@ header.scrolled .nav-links li {
 .faq-item.active .faq-answer {
   padding: 0 20px;
   max-height: 300px;
+}
+/* Services Preview Section */
+.services-preview {
+  padding: 80px 0;
+  background: #f9f9ff;
+}
+
+.services-preview .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #8b39ea;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #8b39ea;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #8b39ea;
+}
+
+.btn-secondary:hover {
+  background: transparent;
+  color: #8b39ea;
 }
