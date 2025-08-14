@@ -220,7 +220,7 @@ header .container {
 
 .logo h1 {
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 900;
   background: linear-gradient(to right, #4a00e0, #8e2de2);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1541,6 +1541,9 @@ header.scrolled .nav-links li {
 @keyframes fallDown {
   0% {
     transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
     opacity: 1;
   }
   100% {

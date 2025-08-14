@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing | KSquare Media - Digital Marketing Solutions</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      /* Floating Currencies Styles */
+      .floating-currencies {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      .floating-currencies i {
+        position: absolute;
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        animation: floatDown 8s linear infinite;
+        opacity: 0;
+      }
+
+      @keyframes floatDown {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Position each currency icon with unique delays */
+      .floating-currencies i:nth-child(1) {
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .floating-currencies i:nth-child(2) {
+        left: 15%;
+        animation-delay: 1s;
+      }
+      .floating-currencies i:nth-child(3) {
+        left: 25%;
+        animation-delay: 2s;
+      }
+      .floating-currencies i:nth-child(4) {
+        left: 35%;
+        animation-delay: 3s;
+      }
+      .floating-currencies i:nth-child(5) {
+        left: 45%;
+        animation-delay: 4s;
+      }
+      .floating-currencies i:nth-child(6) {
+        left: 55%;
+        animation-delay: 5s;
+      }
+      .floating-currencies i:nth-child(7) {
+        left: 65%;
+        animation-delay: 6s;
+      }
+      .floating-currencies i:nth-child(8) {
+        left: 75%;
+        animation-delay: 7s;
+      }
+      .floating-currencies i:nth-child(9) {
+        left: 85%;
+        animation-delay: 0.5s;
+      }
+      .floating-currencies i:nth-child(10) {
+        left: 95%;
+        animation-delay: 1.5s;
+      }
+      .floating-currencies i:nth-child(11) {
+        left: 10%;
+        animation-delay: 2.5s;
+      }
+      .floating-currencies i:nth-child(12) {
+        left: 20%;
+        animation-delay: 3.5s;
+      }
+      .floating-currencies i:nth-child(13) {
+        left: 30%;
+        animation-delay: 4.5s;
+      }
+      .floating-currencies i:nth-child(14) {
+        left: 40%;
+        animation-delay: 5.5s;
+      }
+      .floating-currencies i:nth-child(15) {
+        left: 50%;
+        animation-delay: 6.5s;
+      }
+      .floating-currencies i:nth-child(16) {
+        left: 60%;
+        animation-delay: 0.8s;
+      }
+      .floating-currencies i:nth-child(17) {
+        left: 70%;
+        animation-delay: 1.8s;
+      }
+      .floating-currencies i:nth-child(18) {
+        left: 80%;
+        animation-delay: 2.8s;
+      }
+      .floating-currencies i:nth-child(19) {
+        left: 90%;
+        animation-delay: 3.8s;
+      }
+      .floating-currencies i:nth-child(20) {
+        left: 100%;
+        animation-delay: 4.8s;
+      }
+
+      /* Pricing Specific Styles */
+      .pricing {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+      }
+
+      .pricing-features {
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+
+      .pricing-faq {
+        margin-top: 80px;
+        background: #fff;
+        padding: 60px 0;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-question {
+        width: 100%;
+        padding: 20px;
+        text-align: left;
+        background: #f9f9f9;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .faq-question:hover {
+        background: #f1f1f1;
+      }
+
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        background: #fff;
+        transition: all 0.3s ease;
+      }
+
+      .faq-answer p {
+        padding: 0 0 20px;
+        margin: 0;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+        max-height: 500px;
+      }
+
+      .currency-toggle {
+        text-align: center;
+        margin: 20px 0 40px;
+      }
+
+      .toggle-btn {
+        background: #f1f1f1;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle-btn.active {
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Website Content -->
+    <div class="main-content">
+      <header>
+        <div class="container">
+          <div class="logo">
+            <div class="logo-main">
+              <img
+                src="images/main_logo.png"
+                alt="KSquare Media Logo"
+                class="company-logo"
+              />
+              <h1>K<sup>2</sup> Media hub</h1>
+            </div>
+            <span class="logo-tagline"
+              >From clicks to clients. We connect the dots.</span
+            >
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html" class="active">Pricing</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Page Banner with Floating Currencies -->
+      <section class="page-banner">
+        <div class="container">
+          <h1 data-aos="fade-up">Simple, Transparent Pricing</h1>
+          <p data-aos="fade-up" data-aos-delay="200">
+            Choose the perfect plan for your business needs
+          </p>
+        </div>
+        <div class="banner-wave">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
+              fill="#ffffff"
+              fill-opacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+        <!-- Floating Currencies Animation -->
+        <div class="floating-currencies">
+          <i class="fas fa-rupee-sign"></i>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="fas fa-euro-sign"></i>
+          <i class="fas fa-pound-sign"></i>
+          <i class="fas fa-yen-sign"></i>
+          <i class="fas fa-won-sign"></i>
+          <i class="fas fa-bitcoin"></i>
+          <i class="fas fa-money-bill-wave"></i>
+          <i class="fas fa-coins"></i>
+          <i class="fas fa-piggy-bank"></i>
+          <i class="fas fa-wallet"></i>
+          <i class="fas fa-credit-card"></i>
+          <i class="fas fa-rupee-sign"></i>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="fas fa-euro-sign"></i>
+          <i class="fas fa-pound-sign"></i>
+          <i class="fas fa-yen-sign"></i>
+          <i class="fas fa-won-sign"></i>
+          <i class="fas fa-bitcoin"></i>
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="pricing">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2>Our Pricing Plans</h2>
+            <div class="underline"></div>
+            <p>Flexible options to suit businesses of all sizes</p>
+          </div>
+
+          <div class="currency-toggle" data-aos="fade-up" data-aos-delay="200">
+            <button class="toggle-btn active" data-currency="inr">INR</button>
+            <button class="toggle-btn" data-currency="usd">USD</button>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+              <h3>Starter</h3>
+              <div class="price" data-inr="₹5,999" data-usd="$99">
+                ₹5,999<span>/month</span>
+              </div>
+              <p>Perfect for small businesses getting started online</p>
+              <ul class="pricing-features">
+                <li>5 Social Media Posts</li>
+                <li>Basic SEO Optimization</li>
+                <li>1 Website Update</li>
+                <li>Monthly Analytics Report</li>
+                <li class="disabled">Google Ads Management</li>
+                <li class="disabled">Content Creation</li>
+              </ul>
+              <a href="contact.html" class="btn-primary">Get Started</a>
+            </div>
+
+            <!-- Growth Plan (Popular) -->
+            <div
+              class="pricing-card popular"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <h3>Growth</h3>
+              <div class="price" data-inr="₹14,999" data-usd="$199">
+                ₹14,999<span>/month</span>
+              </div>
+              <p>Ideal for growing businesses with more needs</p>
+              <ul class="pricing-features">
+                <li>15 Social Media Posts</li>
+                <li>Advanced SEO</li>
+                <li>5 Website Updates</li>
+                <li>Weekly Analytics Report</li>
+                <li>Google Ads Management</li>
+                <li class="disabled">Dedicated Content Creator</li>
+              </ul>
+              <a href="contact.html" class="btn-primary">Choose Plan</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="500">
+              <h3>Premium</h3>
+              <div class="price" data-inr="₹29,999" data-usd="$399">
+                ₹29,999<span>/month</span>
+              </div>
+              <p>Complete solution for established businesses</p>
+              <ul class="pricing-features">
+                <li>30 Social Media Posts</li>
+                <li>Premium SEO</li>
+                <li>Unlimited Website Updates</li>
+                <li>Weekly Analytics Report</li>
+                <li>Google & Facebook Ads</li>
+                <li>Dedicated Content Creator</li>
+              </ul>
+              <a href="contact.html" class="btn-primary">Choose Plan</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="pricing-faq">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <div class="underline"></div>
+          </div>
+
+          <div class="faq-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-item">
+              <button class="faq-question">
+                What payment methods do you accept?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  We accept all major credit/debit cards, net banking, UPI
+                  payments (Google Pay, PhonePe, Paytm), and bank transfers.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I cancel or change my plan anytime?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes, you can upgrade, downgrade, or cancel your plan at any
+                  time with no cancellation fees.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Do you offer custom plans?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes! Contact us to discuss a custom plan tailored for your
+                  business needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-content" data-aos="zoom-in">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us today to discuss the best plan for your business</p>
+            <a href="contact.html" class="btn-primary">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <h2>K<sup>2</sup> <span>Media</span></h2>
+              <p>Transforming digital presence in Andhra Pradesh & Telangana</p>
+            </div>
+            <div class="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+              </ul>
+            </div>
+            <div class="footer-contact">
+              <h3>Contact Us</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Mangalagiri, Andhra
+                Pradesh
+              </p>
+              <p><i class="fas fa-envelope"></i> ksquaremedia@gmail.com</p>
+              <p><i class="fas fa-phone"></i> +91 88854 90495</p>
+            </div>
+            <div class="footer-social">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2023 KSquare Media. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Scroll to Top Button -->
+      <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // Initialize animations
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Currency toggle functionality
+      document.querySelectorAll(".toggle-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".toggle-btn")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+
+          const currency = this.dataset.currency;
+          document.querySelectorAll(".price").forEach((price) => {
+            price.textContent = price.dataset[currency];
+            price.innerHTML += "<span>/month</span>";
+          });
+        });
+      });
+
+      // FAQ accordion functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentNode;
+          item.classList.toggle("active");
+        });
+      });
+
+      // Scroll to top button
+      const scrollButton = document.querySelector(".scroll-to-top");
+      window.addEventListener("scroll", () => {
+        scrollButton.classList.toggle("visible", window.scrollY > 300);
+      });
+      scrollButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
