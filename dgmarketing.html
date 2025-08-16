@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media Management - KSquare Media</title>
+    <title>Digital Marketing - KSquare Media</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link
@@ -72,12 +72,11 @@
       }
 
       /* Back button styling */
-      /* Back button styling */
       .back-button {
-        position: absolute; /* Changed from fixed to absolute */
-        top: 30px; /* Position from top of page-banner */
+        position: absolute;
+        top: 20px;
         left: 20px;
-        z-index: 10; /* Adjusted z-index */
+        z-index: 10;
         background: rgba(255, 255, 255, 0.9);
         padding: 10px 20px;
         border-radius: 30px;
@@ -97,6 +96,64 @@
 
       .back-button i {
         margin-right: 8px;
+      }
+
+      /* Ensure page-banner is positioned relatively */
+      .page-banner {
+        position: relative;
+      }
+
+      /* Digital Marketing Services Section */
+      .dm-services {
+        padding: 80px 0;
+      }
+
+      .dm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .dm-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(74, 0, 224, 0.1);
+      }
+
+      .dm-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: rgba(74, 0, 224, 0.2);
+      }
+
+      .dm-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 1.8rem;
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
+      }
+
+      .dm-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .dm-card p {
+        color: #666;
+        line-height: 1.6;
       }
     </style>
   </head>
@@ -138,9 +195,9 @@
       </a>
 
       <div class="container">
-        <h1 data-aos="fade-up">Social Media Management</h1>
+        <h1 data-aos="fade-up">Our digital solutions for your brand</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Professional social media strategies to grow your online presence
+          Comprehensive digital strategies to grow your business online
         </p>
       </div>
       <div class="banner-wave">
@@ -159,48 +216,45 @@
       </div>
     </section>
 
-    <section class="values">
+    <section class="dm-services">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <h2>Our strategy</h2>
+          <h2>Our Digital Marketing Services</h2>
           <div class="underline"></div>
         </div>
-        <div class="values-grid">
-          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="value-icon">
-              <i class="fas fa-handshake"></i>
+        <div class="dm-grid">
+          <div class="dm-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="dm-icon">
+              <i class="fas fa-bullseye"></i>
             </div>
-            <h3>Strategy Development</h3>
+            <h3>Social Media Marketing</h3>
+            <p>Boost engagement and grow your audience across all platforms</p>
+          </div>
+          <div class="dm-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="dm-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>SEO Optimization</h3>
             <p>
-              the process of planning to achieve specific business objectives.
+              Improve search rankings and drive organic traffic to your site
             </p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="value-icon">
-              <i class="fas fa-lightbulb"></i>
+          <div class="dm-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="dm-icon">
+              <i class="fas fa-ad"></i>
             </div>
-            <h3>Content Creation</h3>
-            <p>Design engaging graphics, videos and interactive content</p>
+            <h3>PPC Advertising</h3>
+            <p>Targeted ads that deliver immediate results and high ROI</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="value-icon">
-              <i class="fas fa-users"></i>
+          <div class="dm-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="dm-icon">
+              <i class="fas fa-envelope-open-text"></i>
             </div>
-            <h3>Scheduling and Publishing</h3>
-            <p>Use scheduling tools to post content at optimal times</p>
-          </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="value-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Results-Driven</h3>
-            <p>We focus on delivering measurable outcomes.</p>
+            <h3>Email Marketing</h3>
+            <p>Convert leads into customers with strategic email campaigns</p>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-      <h1 class="pricing">Pricing for growth</h1>
     </section>
 
     <footer>
@@ -247,43 +301,92 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script>
-      // Create falling social media icons
-      function createFallingIcons() {
-        const container = document.getElementById("bannerIcons");
-        const icons = [
-          "fab fa-facebook",
-          "fab fa-twitter",
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Falling social media icons in page-banner
+      document.addEventListener("DOMContentLoaded", function () {
+        const bannerIconsContainer = document.getElementById("bannerIcons");
+        const socialIcons = [
+          "fab fa-facebook-f",
           "fab fa-instagram",
-          "fab fa-linkedin",
+          "fab fa-twitter",
+          "fab fa-linkedin-in",
           "fab fa-youtube",
           "fab fa-pinterest",
+          "fab fa-tiktok",
         ];
 
-        // Create 15 icons
-        for (let i = 0; i < 15; i++) {
+        function createFallingIcon() {
+          const icon = document.createElement("i");
+          icon.className = `${
+            socialIcons[Math.floor(Math.random() * socialIcons.length)]
+          } falling-icon`;
+
+          // Set random position
+          const leftPos = Math.random() * 100;
+          icon.style.left = `${leftPos}%`;
+
+          // Set random size
+          const size = 1 + Math.random() * 1.5;
+          icon.style.fontSize = `${size}rem`;
+
+          // Set random animation duration (5-8 seconds)
+          const duration = 5 + Math.random() * 3;
+
+          icon.style.animation = `iconFall ${duration}s linear infinite`;
+
+          bannerIconsContainer.appendChild(icon);
+
+          // Remove icon after animation completes
           setTimeout(() => {
-            const icon = document.createElement("i");
-            const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-            icon.className = `falling-icon ${randomIcon}`;
-
-            // Random position at top
-            const leftPos = Math.random() * 100;
-            icon.style.left = `${leftPos}%`;
-
-            // Random animation duration (3-8 seconds)
-            const duration = 3 + Math.random() * 5;
-            icon.style.animation = `iconFall ${duration}s linear infinite`;
-
-            // Random delay (0-5 seconds)
-            icon.style.animationDelay = `${Math.random() * 5}s`;
-
-            container.appendChild(icon);
-          }, i * 300); // Stagger creation
+            icon.remove();
+          }, duration * 1000);
         }
-      }
 
-      // Call the function when page loads
-      window.addEventListener("load", createFallingIcons);
+        // Create initial icons
+        for (let i = 0; i < 8; i++) {
+          setTimeout(createFallingIcon, i * 300);
+        }
+
+        // Continue creating new icons
+        setInterval(createFallingIcon, 800);
+      });
+
+      // Back to top button
+      const scrollToTopBtn = document.querySelector(".scroll-to-top");
+      window.addEventListener("scroll", () => {
+        scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+      });
+      scrollToTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking links
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Sticky header
+      window.addEventListener("scroll", function () {
+        document
+          .querySelector("header")
+          .classList.toggle("scrolled", window.scrollY > 60);
+      });
     </script>
   </body>
 </html>
