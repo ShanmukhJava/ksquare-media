@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media Management - KSquare Media</title>
+    <title>PR & Marketing Agency - KSquare Media</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link
@@ -36,7 +36,7 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-      /* Custom styles for falling social media logos */
+      /* Custom styles for falling PR & Marketing icons */
       .banner-icons-container {
         position: absolute;
         top: 0;
@@ -71,12 +71,63 @@
         }
       }
 
-
-
       /* Ensure page-banner is positioned relatively */
       .page-banner {
         position: relative;
-      }a
+      }
+
+      /* PR & Marketing Services Section */
+      .pr-services {
+        padding: 80px 0;
+      }
+
+      .pr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .pr-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(74, 0, 224, 0.1);
+      }
+
+      .pr-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: rgba(74, 0, 224, 0.2);
+      }
+
+      .pr-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 1.8rem;
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
+      }
+
+      .pr-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .pr-card p {
+        color: #666;
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -107,7 +158,7 @@
     </header>
 
     <section class="page-banner">
-      <!-- Container for falling social media icons -->
+      <!-- Container for falling PR & Marketing icons -->
       <div class="banner-icons-container" id="bannerIcons"></div>
 
       <!-- Back button -->
@@ -116,9 +167,9 @@
       </a>
 
       <div class="container">
-        <h1 data-aos="fade-up">Brand & stratagy consultancy</h1>
+        <h1 data-aos="fade-up">PR & Marketing Agency</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Professional social media strategies to grow your online presence
+          Strategic communications to elevate your brand presence
         </p>
       </div>
       <div class="banner-wave">
@@ -137,59 +188,43 @@
       </div>
     </section>
 
-    <section class="values">
+    <section class="pr-services">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <h2>Our strategy</h2>
+          <h2>Our PR & Marketing Services</h2>
           <div class="underline"></div>
         </div>
-        <div class="values-grid">
-          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="value-icon">
-              <i class="fas fa-handshake"></i>
+        <div class="pr-grid">
+          <div class="pr-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="pr-icon">
+              <i class="fas fa-bullhorn"></i>
             </div>
-            <h3>Brand Identity</h3>
-            <p>
-              We define your core brand identity and unique value proposition to
-              stand out in the market.
-            </p>
+            <h3>Public Relations</h3>
+            <p>Strategic media relations and reputation management</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="value-icon">
-              <i class="fas fa-lightbulb"></i>
+          <div class="pr-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="pr-icon">
+              <i class="fas fa-ad"></i>
             </div>
-            <h3>Market Strategy</h3>
-            <p>
-              We develop a clear roadmap to achieve your long-term business
-              goals.
-            </p>
+            <h3>Brand Marketing</h3>
+            <p>Comprehensive campaigns to build brand awareness</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="value-icon">
+          <div class="pr-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="pr-icon">
               <i class="fas fa-users"></i>
             </div>
-            a
-            <h3>Audience Connection</h3>
-            <p>
-              We build your market presence by positioning your brand to
-              authentically connect with your target audience.
-            </p>
+            <h3>Influencer Marketing</h3>
+            <p>Leverage key opinion leaders to amplify your message</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="value-icon">
+          <div class="pr-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="pr-icon">
               <i class="fas fa-chart-line"></i>
             </div>
-            <h3>Growth Framework</h3>
-            <p>
-              We provide a scalable framework to ensure your brand's consistent
-              and sustainable growth.
-            </p>
+            <h3>Digital PR</h3>
+            <p>Online reputation management and digital storytelling</p>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-      <h1 class="pricing">Pricing for growth</h1>
     </section>
 
     <footer>
@@ -236,68 +271,91 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script>
+      // Initialize AOS animations
       AOS.init({
         duration: 800,
         once: true,
-        offset: 120,
       });
 
-      // Header scroll effect
-      window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-
-      // Falling brand-related icons
+      // Falling PR & Marketing icons in page-banner
       document.addEventListener("DOMContentLoaded", function () {
         const bannerIconsContainer = document.getElementById("bannerIcons");
-        const brandIcons = [
-          "fas fa-chess",
-          "fas fa-chess-king",
-          "fas fa-chess-queen",
-          "fas fa-chess-pawn",
-          "fas fa-chess-rook",
-          "fas fa-chess-knight",
-          "fas fa-chess-bishop",
-          "fas fa-crown",
-          "fas fa-chess-board",
-          "fas fa-project-diagram",
-          "fas fa-bullseye",
-          "fas fa-chart-line",
+        const prIcons = [
+          "fas fa-newspaper",
+          "fas fa-microphone",
+          "fas fa-hashtag",
+          "fas fa-video",
+          "fas fa-camera",
+          "fas fa-podcast",
+          "fas fa-share-alt",
         ];
 
         function createFallingIcon() {
           const icon = document.createElement("i");
-          icon.className =
-            brandIcons[Math.floor(Math.random() * brandIcons.length)] +
-            " falling-icon";
+          icon.className = `${
+            prIcons[Math.floor(Math.random() * prIcons.length)]
+          } falling-icon`;
 
-          icon.style.left = Math.random() * 100 + "%";
-          icon.style.fontSize = 0.8 + Math.random() * 1.5 + "rem";
+          // Set random position
+          const leftPos = Math.random() * 100;
+          icon.style.left = `${leftPos}%`;
 
-          const duration = 8 + Math.random() * 7;
+          // Set random size
+          const size = 1 + Math.random() * 1.5;
+          icon.style.fontSize = `${size}rem`;
+
+          // Set random animation duration (5-8 seconds)
+          const duration = 5 + Math.random() * 3;
+
           icon.style.animation = `iconFall ${duration}s linear infinite`;
 
           bannerIconsContainer.appendChild(icon);
 
+          // Remove icon after animation completes
           setTimeout(() => {
-            if (icon.parentNode === bannerIconsContainer) {
-              bannerIconsContainer.removeChild(icon);
-            }
+            icon.remove();
           }, duration * 1000);
         }
 
         // Create initial icons
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 8; i++) {
           setTimeout(createFallingIcon, i * 300);
         }
 
-        // Keep creating new icons
+        // Continue creating new icons
         setInterval(createFallingIcon, 800);
+      });
+
+      // Back to top button
+      const scrollToTopBtn = document.querySelector(".scroll-to-top");
+      window.addEventListener("scroll", () => {
+        scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+      });
+      scrollToTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking links
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Sticky header
+      window.addEventListener("scroll", function () {
+        document
+          .querySelector("header")
+          .classList.toggle("scrolled", window.scrollY > 60);
       });
     </script>
   </body>
