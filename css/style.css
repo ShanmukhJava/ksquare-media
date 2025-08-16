@@ -13,6 +13,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   position: relative;
+  padding-top: 80px;
 }
 
 body::before {
@@ -188,22 +189,16 @@ section {
 
 /* Header Styles */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 18px 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(138, 45, 226, 0.1);
-  transition: all 0.4s ease;
-
-  /* New animation properties */
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeSlideDown 1s ease forwards;
-  animation-delay: 0.3s;
+  transform: translateZ(0); /* Hardware acceleration */
 }
 
 @keyframes fadeSlideDown {
@@ -346,8 +341,8 @@ header .container {
 }
 
 .hero-content h1 {
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-size: 2.2rem;
+  font-weight: 300;
   margin-bottom: 20px;
   line-height: 1.2;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -369,14 +364,70 @@ header .container {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Add these CSS rules to your style.css file to fix the thin line issue on all pages */
+
+/* Hero Wave Fix */
 .hero-wave {
+  position: relative;
+  margin-top: -2px; /* Increased from -1px for better coverage */
+  z-index: 1;
+  line-height: 0; /* Remove any line height */
+}
+
+.hero-wave svg {
+  display: block; /* Removes default inline spacing */
+  width: 100%;
+  height: auto;
+  vertical-align: top; /* Ensures proper alignment */
+}
+
+/* Page Banner Wave Fix */
+.banner-wave {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   line-height: 0;
-  z-index: 1;
-  height: 130px; /* Increased height for the wave */
+  height: 150px;
+  margin-bottom: -2px; /* Add negative margin to eliminate gap */
+}
+
+.banner-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+/* General wave container fix for all pages */
+.hero,
+.page-banner {
+  position: relative;
+  overflow: hidden; /* Ensure no overflow issues */
+}
+
+/* Ensure sections after waves start cleanly */
+.mission,
+.pricing,
+.contact-info,
+.about-story {
+  position: relative;
+  margin-top: -1px; /* Pull up slightly to eliminate any gap */
+  z-index: 2;
+  background-color: #fff; /* Ensure solid background */
+}
+
+/* Additional fix for any remaining gaps */
+.hero::after,
+.page-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  z-index: 3;
 }
 
 .logo {
@@ -1347,40 +1398,48 @@ footer {
 /* Header Styles */
 /* header, */
 header.scrolled {
-  position: fixed;
-  top: 18px;
-  left: 15%;
-  transform: translateX(-50%);
-  width: 900px;
-  max-width: 96vw;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease,
-    border-radius 0.35s ease;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 8px 32px rgba(74, 0, 224, 0.1);
-  padding: 14px 48px;
-  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: none;
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  /* Capsule shape */
+  width: 90%;
+  left: 5%;
+  border-radius: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Shrink effect on scroll */
 header.scrolled {
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 8px 32px rgba(74, 0, 224, 0.1);
-  padding: 14px 48px;
-  border-radius: 40px;
-  border-bottom: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  /* Perfectly centered capsule shape */
+  width: calc(100% - 40px); /* Accounts for padding */
+  left: 20px; /* Half of the reduced width */
+  right: 20px; /* Half of the reduced width */
+  margin: 0 auto; /* Centers the element */
+  border-radius: 50px;
+  max-width: 1200px; /* Match your container max-width */
 }
 
 /* Hide logo image and tagline when scrolled */
 header.scrolled .company-logo,
 header.scrolled .logo-tagline {
-  display: none !important;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+header.scrolled .logo-main {
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
 /* Show only K² Media Solutions text */
@@ -1412,6 +1471,15 @@ header.scrolled .nav-links li {
   header.scrolled {
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 16px rgba(74, 0, 224, 0.08);
+  }
+}
+
+@media (max-width: 768px) {
+  header.scrolled {
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0;
   }
 }
 .floating-icons-hero {
@@ -1747,4 +1815,138 @@ header.scrolled .nav-links li {
 .btn-secondary:hover {
   background: transparent;
   color: #8b39ea;
+}
+.hero-image {
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  top: 55%;
+  left: 120%;
+  transform: translate(-50%, -50%);
+  margin-left: 200px;
+}
+
+.plan-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.hero-dma-text {
+  margin-top: 1.2rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #1976d2;
+  letter-spacing: 1px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+  height: 2em;
+  top: 100px;
+}
+
+.hero-dma-text span {
+  display: inline-block;
+  font-weight: bold;
+  animation: scroll-left 7s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Scrolling Services Text */
+.scrolling-services {
+  background: #ffffff;
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrolling-text {
+  display: inline-flex;
+  animation: scrollText 25s linear infinite;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #4a00e0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1;
+  padding: 20px 0;
+  align-items: center;
+}
+
+.scrolling-text span {
+  margin: 0 30px;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+.scrolling-text span:not(:last-child):after {
+  content: "•";
+  position: absolute;
+  right: -25px;
+  color: rgba(74, 0, 224, 0.3);
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .scrolling-text {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .scrolling-text {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrolling-text {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+  .scrolling-text span {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .scrolling-services {
+    padding: 40px 0;
+  }
+  .scrolling-text {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  .scrolling-text span {
+    margin: 0 15px;
+  }
 }

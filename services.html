@@ -15,6 +15,446 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      /* ======================
+   SERVICE CARD BUTTONS
+   ====================== */
+
+      /* Main container for service actions */
+      .service-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        gap: 15px;
+      }
+
+      /* Primary button (Get Started) */
+      .btn-primary {
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(74, 0, 224, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(74, 0, 224, 0.3);
+      }
+
+      /* Outline button (View Pricing) */
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #8b39ea;
+        color: #8b39ea;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        text-align: center;
+      }
+
+      .btn-outline:hover {
+        background: #8b39ea;
+        color: white;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .service-actions {
+          flex-direction: column;
+        }
+
+        .btn-primary,
+        .btn-outline {
+          width: 100%;
+        }
+      }
+      /* ======================
+   SERVICES GRID LAYOUT FIX
+   ====================== */
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      /* Additional Services Container - Fix for grid layout */
+      #additional-services {
+        display: none;
+        grid-column: 1 / -1; /* Make it span all columns */
+      }
+
+      #additional-services.show {
+        display: grid;
+        grid-template-columns: inherit; /* Inherit the same grid layout */
+        gap: inherit; /* Inherit the same gap */
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      /* Ensures all service cards (including additional ones) follow the same grid */
+      .services-grid > .service-card,
+      #additional-services > .service-card {
+        grid-column: auto; /* Let each card occupy one grid cell */
+      }
+
+      /* Service Details should span full width */
+      .service-details {
+        grid-column: 1 / -1;
+      }
+
+      /* See More Button Container */
+      .see-more-container {
+        grid-column: 1 / -1; /* Make button span full width */
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Fixes */
+      @media (max-width: 768px) {
+        .services-grid,
+        #additional-services.show {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* ======================
+   SERVICES PAGE STYLES
+   ====================== */
+
+      /* Services Grid Layout */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      /* Service Card */
+      .service-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: rgba(138, 45, 226, 0.3);
+      }
+
+      .service-card.expanded {
+        border-radius: 10px 10px 0 0;
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        box-shadow: 0 5px 15px rgba(138, 45, 226, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(138, 45, 226, 0.3);
+      }
+
+      .service-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .service-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Service Details */
+      .service-details {
+        display: none;
+        padding: 20px;
+        background: #f9f9ff;
+        border-radius: 0 0 10px 10px;
+        margin-top: -10px;
+        grid-column: 1 / -1;
+        animation: fadeIn 0.3s ease-out;
+        border-top: 1px solid rgba(138, 45, 226, 0.1);
+      }
+
+      .service-card.expanded + .service-details {
+        display: block;
+      }
+
+      .service-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        gap: 15px;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #8b39ea;
+        color: #8b39ea;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        flex: 1;
+        text-align: center;
+      }
+
+      .btn-outline:hover {
+        background: #8b39ea;
+        color: white;
+      }
+
+      /* Additional Services - Hidden by default */
+      .additional-services {
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      .additional-services.show {
+        display: grid;
+      }
+
+      .see-more-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .btn-secondary {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #8b39ea;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid #8b39ea;
+        box-shadow: 0 5px 15px rgba(139, 57, 234, 0.2);
+      }
+
+      .btn-secondary:hover {
+        background: transparent;
+        color: #8b39ea;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(139, 57, 234, 0.3);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Floating Icons Animation */
+      .floating-icons-hero {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+        overflow: visible;
+      }
+
+      .floating-icons-hero i {
+        position: absolute;
+        font-size: 2.2rem;
+        color: rgba(74, 0, 224, 0.15);
+        opacity: 0;
+        pointer-events: none;
+        animation-fill-mode: forwards;
+      }
+
+      /* Individual icon positions and animations */
+      .floating-icons-hero i:nth-child(1) {
+        left: 78%;
+        animation: fallDown 5.5s linear infinite;
+        animation-delay: 7.1s;
+      }
+      .floating-icons-hero i:nth-child(2) {
+        left: 56%;
+        animation: fallDown 9.3s linear infinite;
+        animation-delay: 1.4s;
+      }
+      .floating-icons-hero i:nth-child(3) {
+        left: 18%;
+        animation: fallDown 6.5s linear infinite;
+        animation-delay: 3.8s;
+      }
+      .floating-icons-hero i:nth-child(4) {
+        left: 48%;
+        animation: fallDown 7s linear infinite;
+        animation-delay: 8.1s;
+      }
+      .floating-icons-hero i:nth-child(5) {
+        left: 59%;
+        animation: fallDown 5.5s linear infinite;
+        animation-delay: 4.3s;
+      }
+      .floating-icons-hero i:nth-child(6) {
+        left: 88%;
+        animation: fallDown 8.1s linear infinite;
+        animation-delay: 7.4s;
+      }
+      .floating-icons-hero i:nth-child(7) {
+        left: 42%;
+        animation: fallDown 9.5s linear infinite;
+        animation-delay: 8.1s;
+      }
+      .floating-icons-hero i:nth-child(8) {
+        left: 8%;
+        animation: fallDown 9.4s linear infinite;
+        animation-delay: 3s;
+      }
+      .floating-icons-hero i:nth-child(9) {
+        left: 8%;
+        animation: fallDown 9.3s linear infinite;
+        animation-delay: 6.2s;
+      }
+      .floating-icons-hero i:nth-child(10) {
+        left: 38%;
+        animation: fallDown 8.2s linear infinite;
+        animation-delay: 7.4s;
+      }
+      .floating-icons-hero i:nth-child(11) {
+        left: 55%;
+        animation: fallDown 5.6s linear infinite;
+        animation-delay: 2s;
+      }
+      .floating-icons-hero i:nth-child(12) {
+        left: 90%;
+        animation: fallDown 7.1s linear infinite;
+        animation-delay: 7.8s;
+      }
+      .floating-icons-hero i:nth-child(13) {
+        left: 12%;
+        animation: fallDown 7.9s linear infinite;
+        animation-delay: 1.2s;
+      }
+      .floating-icons-hero i:nth-child(14) {
+        left: 3%;
+        animation: fallDown 6.8s linear infinite;
+        animation-delay: 7.9s;
+      }
+      .floating-icons-hero i:nth-child(15) {
+        left: 84%;
+        animation: fallDown 6.6s linear infinite;
+        animation-delay: 3.7s;
+      }
+      .floating-icons-hero i:nth-child(16) {
+        left: 69%;
+        animation: fallDown 8.2s linear infinite;
+        animation-delay: 3.3s;
+      }
+      .floating-icons-hero i:nth-child(17) {
+        left: 69%;
+        animation: fallDown 9.1s linear infinite;
+        animation-delay: 6s;
+      }
+      .floating-icons-hero i:nth-child(18) {
+        left: 41%;
+        animation: fallDown 7.7s linear infinite;
+        animation-delay: 1.5s;
+      }
+      .floating-icons-hero i:nth-child(19) {
+        left: 20%;
+        animation: fallDown 9.5s linear infinite;
+        animation-delay: 0s;
+      }
+      .floating-icons-hero i:nth-child(20) {
+        left: 8%;
+        animation: fallDown 9.1s linear infinite;
+        animation-delay: 7.7s;
+      }
+
+      @keyframes fallDown {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-actions {
+          flex-direction: column;
+        }
+
+        .btn-outline {
+          width: 100%;
+        }
+
+        .service-icon {
+          width: 70px;
+          height: 70px;
+          font-size: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -31,7 +471,7 @@
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <!-- <li><a href="pricing.html">Pricing</a></li> -->
             <li><a href="contact.html">Contact</a></li>
             <li><a href="about.html">About Us</a></li>
           </ul>
@@ -46,9 +486,9 @@
 
     <section class="page-banner">
       <div class="container">
-        <h1 data-aos="fade-up">Our Services</h1>
+        <h1 data-aos="fade-up">Our Core Services</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Comprehensive digital marketing solutions for your business
+          Strategic digital solutions tailored for your business growth
         </p>
       </div>
       <div class="banner-wave">
@@ -65,196 +505,415 @@
           ></path>
         </svg>
       </div>
-      <!-- Floating icons on hero wave -->
-      <div class="floating-icons-hero">
-        <i class="fas fa-camera"></i>
-        <i class="fas fa-video"></i>
-        <i class="fas fa-code"></i>
-        <i class="fas fa-bullhorn"></i>
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-google"></i>
-        <i class="fas fa-chart-line"></i>
-        <i class="fas fa-envelope-open-text"></i>
-        <i class="fas fa-mouse-pointer"></i>
-        <i class="fas fa-lightbulb"></i>
-        <i class="fas fa-robot"></i>
-        <i class="fas fa-hashtag"></i>
-        <i class="fas fa-globe"></i>
-        <i class="fas fa-users"></i>
-        <i class="fas fa-ad"></i>
-        <i class="fas fa-laptop"></i>
-        <i class="fas fa-mobile-alt"></i>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-star"></i>
-      </div>
     </section>
 
     <section class="services">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <h2>What We Offer</h2>
+          <h2>Our Specialized Solutions</h2>
           <div class="underline"></div>
           <p>
-            Comprehensive digital marketing solutions tailored for businesses in
-            Andhra Pradesh and Telangana
+            Focused digital marketing services designed for businesses in Andhra
+            Pradesh and Telangana
           </p>
         </div>
 
         <div class="services-grid">
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3>Website Development</h3>
-            <p>
-              Custom, responsive, and SEO-friendly websites designed to convert
-              visitors into customers.
-            </p>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 1: Social Media Management -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            onclick="toggleServiceDetails(1)"
+          >
             <div class="service-icon">
               <i class="fas fa-share-alt"></i>
             </div>
             <h3>Social Media Management</h3>
             <p>
-              Strategic content creation and community management to build your
-              brand presence online.
+              Comprehensive strategies to build and maintain your brand's social
+              presence.
             </p>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-star"></i>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="smm.html" class="btn-outline">Explore</a>
             </div>
-            <h3>Google Reviews</h3>
-            <p>
-              Reputation management strategies to improve your business ratings
-              and customer trust.
-            </p>
           </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-users"></i>
+          <!-- <div class="service-details" id="service-details-1">
+            <p>
+              We handle all aspects of your social media presence including
+              content creation, posting schedules, community engagement, and
+              performance analytics across all major platforms (Facebook,
+              Instagram, LinkedIn, Twitter). Our team develops customized
+              strategies to increase your brand visibility and engagement.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#social-media" class="btn-outline"
+                >View Pricing</a
+              >
             </div>
-            <h3>Influencer Marketing</h3>
-            <p>
-              Connect with relevant influencers to expand your reach and build
-              credibility.
-            </p>
-          </div>
+          </div> -->
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 2: Brand Consultancy -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="150"
+            onclick="toggleServiceDetails(2)"
+          >
             <div class="service-icon">
               <i class="fas fa-briefcase"></i>
             </div>
-            <h3>Brand Consultancy</h3>
-            <p>
-              Expert guidance to develop and refine your brand identity and
-              messaging.
-            </p>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-lightbulb"></i>
+            <h3>Brand establishment & stratagy consultancy</h3>
+            <p>Expert guidance to develop and refine your brand identity.</p>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="brande&s.html" class="btn-outline">Explore</a>
             </div>
-            <h3>New Creative Business Ideas</h3>
-            <p>
-              Innovative strategies and concepts to help your business stand out
-              in the market.
-            </p>
           </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-cogs"></i>
+          <!-- <div class="service-details" id="service-details-2">
+            <p>
+              Our brand consultancy services help you establish a strong brand
+              identity, messaging framework, and visual language that resonates
+              with your target audience. We conduct market research, competitor
+              analysis, and brand positioning to ensure your brand stands out in
+              the market.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#brand-consultancy" class="btn-outline"
+                >View Pricing</a
+              >
             </div>
-            <h3>Customized Software</h3>
-            <p>
-              Tailored software solutions designed to streamline your business
-              operations.
-            </p>
-          </div>
+          </div> -->
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 3: Google Reviews -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            onclick="toggleServiceDetails(3)"
+          >
             <div class="service-icon">
-              <i class="fas fa-mobile-alt"></i>
+              <i class="fas fa-star"></i>
             </div>
-            <h3>Mobile Applications</h3>
-            <p>
-              User-friendly mobile apps that enhance customer engagement and
-              business efficiency.
-            </p>
+            <h3>Digital marketing</h3>
+            <p>Boost your online reputation with authentic digital services.</p>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="pricing.html#social-media" class="btn-outline"
+                >Explore</a
+              >
+            </div>
           </div>
+          <!-- <div class="service-details" id="service-details-3">
+            <p>
+              We implement strategies to generate genuine positive reviews from
+              your satisfied customers while professionally managing negative
+              feedback. Our approach includes review generation campaigns,
+              response templates, and reputation monitoring to enhance your
+              online credibility.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#google-reviews" class="btn-outline"
+                >View Pricing</a
+              >
+            </div>
+          </div> -->
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 4: Web & App Development -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="250"
+            onclick="toggleServiceDetails(4)"
+          >
             <div class="service-icon">
-              <i class="fas fa-ad"></i>
+              <i class="fas fa-laptop-code"></i>
             </div>
-            <h3>Ads Management</h3>
-            <p>
-              Strategic planning and optimization of digital advertising
-              campaigns for maximum ROI.
-            </p>
+            <h3>Web & App Development</h3>
+            <p>Custom digital solutions for your business needs.</p>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="pricing.html#social-media" class="btn-outline"
+                >Explore</a
+              >
+            </div>
           </div>
+          <!-- <div class="service-details" id="service-details-4">
+            <p>
+              From responsive websites to custom mobile applications, we build
+              digital products that deliver exceptional user experiences. Our
+              development process includes strategic planning, UI/UX design,
+              development, testing, and ongoing maintenance to ensure your
+              digital presence performs optimally.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#web-development" class="btn-outline"
+                >View Pricing</a
+              >
+            </div>
+          </div> -->
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 5: PR and Marketing Agency -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            onclick="toggleServiceDetails(5)"
+          >
             <div class="service-icon">
-              <i class="fas fa-folder-open"></i>
+              <i class="fas fa-bullhorn"></i>
             </div>
-            <h3>Company Portfolio</h3>
-            <p>
-              Professional presentation of your company's work, achievements,
-              and capabilities.
-            </p>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fab fa-whatsapp"></i>
+            <h3>PR & Marketing Agency</h3>
+            <p>Strategic communication and marketing solutions.</p>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="pricing.html#social-media" class="btn-outline"
+                >Explore</a
+              >
             </div>
-            <h3>WhatsApp Bulk</h3>
-            <p>
-              Efficient mass messaging solutions for marketing campaigns and
-              customer communication.
-            </p>
           </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-calendar-check"></i>
+          <!-- <div class="service-details" id="service-details-5">
+            <p>
+              Our full-service PR and marketing agency handles media relations,
+              press releases, influencer collaborations, and integrated
+              marketing campaigns. We craft compelling narratives and execute
+              targeted strategies to amplify your brand's reach and impact in
+              the market.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#pr-marketing" class="btn-outline"
+                >View Pricing</a
+              >
             </div>
-            <h3>Events Management</h3>
-            <p>
-              Comprehensive planning and execution of corporate and marketing
-              events.
-            </p>
-          </div>
+          </div> -->
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
+          <!-- Service 6: AI Agents and Automated Workflows -->
+          <div
+            class="service-card"
+            data-aos="fade-up"
+            data-aos-delay="350"
+            onclick="toggleServiceDetails(6)"
+          >
             <div class="service-icon">
               <i class="fas fa-robot"></i>
             </div>
-            <h3>AI Agents</h3>
-            <p>
-              Intelligent automated solutions to enhance customer service and
-              business operations.
-            </p>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="20">
-            <div class="service-icon">
-              <i class="fas fa-cog"></i>
+            <h3>AI Agents & Automated Workflows</h3>
+            <p>Intelligent automation for business efficiency.</p>
+            <div class="service-actions">
+              <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+              <a href="pricing.html#social-media" class="btn-outline"
+                >Explore</a
+              >
             </div>
-            <h3>AI Automated Workflows</h3>
-            <p>
-              Streamlined business processes using artificial intelligence for
-              improved efficiency.
-            </p>
           </div>
+          <!-- <div class="service-details" id="service-details-6">
+            <p>
+              Leverage artificial intelligence to streamline your business
+              operations. We develop custom AI chatbots, automated customer
+              service solutions, and workflow automation systems that reduce
+              manual work, improve response times, and enhance customer
+              experiences while lowering operational costs.
+            </p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="pricing.html#ai-automation" class="btn-outline"
+                >View Pricing</a
+              >
+            </div>
+          </div> -->
+
+          <!-- Additional Services (Hidden by default) -->
+          <div class="additional-services" id="additional-services">
+            <!-- Service 7: Influencer Marketing -->
+            <div class="service-card" onclick="toggleServiceDetails(7)">
+              <div class="service-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Influencer Marketing</h3>
+              <p>Connect with relevant influencers to expand your reach.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-7">
+              <p>
+                We identify and collaborate with influencers who align with your
+                brand values to create authentic partnerships. Our influencer
+                marketing campaigns include strategy development, influencer
+                identification, campaign execution, and performance tracking to
+                maximize your ROI.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#influencer-marketing" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+
+            <!-- Service 8: New Creative Business Ideas -->
+            <div class="service-card" onclick="toggleServiceDetails(8)">
+              <div class="service-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>New Creative Business Ideas</h3>
+              <p>Innovative strategies to help your business stand out.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-8">
+              <p>
+                Our creative team develops unique business concepts and
+                marketing strategies tailored to your industry. We conduct
+                brainstorming sessions, market analysis, and concept testing to
+                deliver fresh ideas that differentiate your business from
+                competitors.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#creative-ideas" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+
+            <!-- Service 9: Customized Software -->
+            <div class="service-card" onclick="toggleServiceDetails(9)">
+              <div class="service-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Customized Software</h3>
+              <p>Tailored software solutions for your business.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-9">
+              <p>
+                We develop custom software solutions designed specifically for
+                your business processes. Our solutions include CRM systems,
+                inventory management, ERP solutions, and other business
+                automation tools that streamline your operations and improve
+                efficiency.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#custom-software" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+
+            <!-- Service 10: Company Portfolio -->
+            <div class="service-card" onclick="toggleServiceDetails(10)">
+              <div class="service-icon">
+                <i class="fas fa-folder-open"></i>
+              </div>
+              <h3>Company Portfolio</h3>
+              <p>Professional presentation of your company's work.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-10">
+              <p>
+                We create stunning portfolio presentations that showcase your
+                company's achievements, capabilities, and case studies. Our
+                portfolio services include design, content development, and
+                digital presentation solutions that impress potential clients
+                and partners.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#company-portfolio" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+
+            <!-- Service 11: WhatsApp Bulk -->
+            <div class="service-card" onclick="toggleServiceDetails(11)">
+              <div class="service-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h3>WhatsApp Bulk Messaging</h3>
+              <p>Efficient mass messaging for marketing campaigns.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-11">
+              <p>
+                Our WhatsApp bulk messaging service helps you reach customers
+                directly with promotional messages, updates, and notifications.
+                We ensure compliance with WhatsApp's policies while maximizing
+                deliverability and engagement rates.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#whatsapp-bulk" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+
+            <!-- Service 12: Events Management -->
+            <div class="service-card" onclick="toggleServiceDetails(12)">
+              <div class="service-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <h3>Events Management</h3>
+              <p>Comprehensive planning of corporate and marketing events.</p>
+              <div class="service-actions">
+                <!-- <a href="contact.html" class="btn-primary">See details</a> -->
+                <a href="pricing.html#social-media" class="btn-outline"
+                  >Explore</a
+                >
+              </div>
+            </div>
+            <!-- <div class="service-details" id="service-details-12">
+              <p>
+                From product launches to corporate conferences, we handle all
+                aspects of event management including venue selection,
+                logistics, marketing, attendee management, and post-event
+                follow-up to ensure successful and memorable events.
+              </p>
+              <div class="service-actions">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="pricing.html#events-management" class="btn-outline"
+                  >View Pricing</a
+                >
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="see-more-container" data-aos="fade-up">
+          <button id="toggleServicesBtn" class="btn-secondary">
+            See All Services
+          </button>
         </div>
       </div>
     </section>
@@ -262,7 +921,7 @@
     <section class="cta">
       <div class="container">
         <div class="cta-content" data-aos="zoom-in">
-          <h2>Ready to Elevate Your Digital Marketing?</h2>
+          <h2>Ready to Transform Your Digital Presence?</h2>
           <p>Let's discuss how our services can help your business grow.</p>
           <a href="contact.html" class="btn-primary">Get in Touch</a>
         </div>
@@ -317,15 +976,75 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
-    <!-- Add before </body> -->
     <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Toggle service details
+      function toggleServiceDetails(serviceNumber) {
+        const serviceCard = document.querySelector(
+          `.service-card:nth-of-type(${serviceNumber})`
+        );
+        const serviceDetails = document.getElementById(
+          `service-details-${serviceNumber}`
+        );
+
+        // Close all other open service details
+        document.querySelectorAll(".service-details").forEach((details) => {
+          if (details.id !== `service-details-${serviceNumber}`) {
+            details.style.display = "none";
+            details.previousElementSibling.classList.remove("expanded");
+          }
+        });
+
+        // Toggle current service
+        if (serviceDetails.style.display === "block") {
+          serviceDetails.style.display = "none";
+          serviceCard.classList.remove("expanded");
+        } else {
+          serviceDetails.style.display = "block";
+          serviceCard.classList.add("expanded");
+        }
+      }
+
+      // Toggle additional services
+      document
+        .getElementById("toggleServicesBtn")
+        .addEventListener("click", function () {
+          const additionalServices = document.getElementById(
+            "additional-services"
+          );
+          const btn = this;
+
+          if (additionalServices.classList.contains("show")) {
+            additionalServices.classList.remove("show");
+            btn.textContent = "See All Services";
+            // Close any open service details when hiding
+            document.querySelectorAll(".service-details").forEach((details) => {
+              details.style.display = "none";
+              details.previousElementSibling.classList.remove("expanded");
+            });
+          } else {
+            additionalServices.classList.add("show");
+            btn.textContent = "Show Less";
+          }
+
+          // Smooth scroll to maintain good UX
+          setTimeout(() => {
+            additionalServices.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+            });
+          }, 50);
+        });
+
+      // Header scroll effect
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
-        if (window.scrollY > 60) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
+        header.classList.toggle("scrolled", window.scrollY > 60);
       });
     </script>
   </body>

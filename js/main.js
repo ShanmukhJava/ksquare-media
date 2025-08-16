@@ -425,3 +425,43 @@ window.addEventListener("scroll", function () {
 
   lastScroll = currentScroll;
 });
+
+// // Smooth header scroll effect with requestAnimationFrame for performance
+// let lastScroll = 0;
+// let ticking = false;
+// const header = document.querySelector("header");
+// const scrollThreshold = 100; // Adjust as needed
+
+// function updateHeader(currentScroll) {
+//   if (currentScroll > scrollThreshold) {
+//     header.classList.add("scrolled");
+
+//     // Additional effect - make header more compact when scrolling down
+//     if (currentScroll > lastScroll && currentScroll > 200) {
+//       header.style.transform = "translateY(-10px)";
+//     } else {
+//       header.style.transform = "translateY(0)";
+//     }
+//   } else {
+//     header.classList.remove("scrolled");
+//     header.style.transform = "translateY(0)";
+//   }
+
+//   lastScroll = currentScroll;
+//   ticking = false;
+// }
+
+window.addEventListener(
+  "scroll",
+  function () {
+    const currentScroll = window.pageYOffset;
+
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateHeader(currentScroll);
+      });
+      ticking = true;
+    }
+  },
+  { passive: true }
+);
