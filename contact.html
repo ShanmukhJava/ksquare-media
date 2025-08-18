@@ -382,32 +382,22 @@
           submitButton.textContent = "Sending...";
           submitButton.disabled = true;
 
-          const formData = new FormData(e.target);
-          const data = Object.fromEntries(formData.entries());
-
           fetch("send_email.php", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(data).toString(),
+            body: new FormData(e.target),
           })
             .then((response) => response.json())
-            .then((result) => {
-              if (result.success) {
-                alert("✅ " + result.message);
+            .then((data) => {
+              if (data.success) {
+                alert("✅ " + data.message);
                 e.target.reset();
               } else {
-                alert(
-                  "❌ Error: " + (result.error || "Failed to send message")
-                );
+                alert("❌ Error: " + (data.error || "Unknown error"));
               }
             })
             .catch((error) => {
               console.error("Error:", error);
-              alert(
-                "❌ Failed to send email. Please try again or contact us directly at ksquaremedia@gmail.com"
-              );
+              alert("❌ Network error. Please try again later.");
             })
             .finally(() => {
               submitButton.textContent = originalText;

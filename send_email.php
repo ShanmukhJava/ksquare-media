@@ -1,4 +1,13 @@
 <?php
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Create error log file
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__.'/php_errors.log');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -7,34 +16,58 @@ require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userEmail = $_POST['userEmail']; // Email entered in form
+    // Verify form data is received
+    error_log("Form submitted with data: ".print_r($_POST, true));
+    
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $service = $_POST['service'] ?? '';
     
     $mail = new PHPMailer(true);
 
     try {
+        // SMTP Debugging
+        $mail->SMTPDebug = 2; // Enable verbose debug output
+        $mail->Debugoutput = function($str, $level) {
+            error_log("PHPMailer: $str");
+        };
+
         // SMTP settings
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'mailing@ksquaremediahub.in'; // your Hostinger email
-        $mail->Password   = 'Klevant@2025'; // password for that email
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  // use 'tls' if 587
-        $mail->Port       = 465;   // 587 if TLS
+        $mail->Username   = 'mailing@ksquaremediahub.in';
+        $mail->Password   = 'Klevant@2025';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL
+        $mail->Port       = 465;
 
         // Sender & recipient
-        $mail->setFrom('mailing@ksquaremediahub.in', 'ksquaremediahub.in');
-        $mail->addAddress('ksquaremediahub@gmail.com'); // where you want to receive emails
-        $mail->addReplyTo($userEmail); // so you can reply directly to the user
+        $mail->setFrom('mailing@ksquaremediahub.in', 'KSquare Media');
+        $mail->addAddress('ksquaremediahub@gmail.com');
+        $mail->addReplyTo($email, $name);
 
         // Email content
         $mail->isHTML(true);
-        $mail->Subject = 'New Request from Website';
-        $mail->Body    = "New request from: <b>$userEmail</b>";
+        $mail->Subject = 'New Appointment: ' . $service;
+        $mail->Body    = "
+            <h2>New Appointment Request</h2>
+            <p><strong>Name:</strong> $name</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Phone:</strong> $phone</p>
+            <p><strong>Service:</strong> $service</p>
+        ";
 
-        $mail->send();
-        echo "Email has been sent successfully!";
+        if ($mail->send()) {
+            echo json_encode(['success' => true, 'message' => 'Email sent successfully!']);
+        } else {
+            echo json_encode(['success' => false, 'error' => 'Failed to send email']);
+        }
     } catch (Exception $e) {
-        echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+        error_log("Mailer Error: ".$e->getMessage());
+        echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     }
+} else {
+    echo json_encode(['success' => false, 'error' => 'Invalid request method']);
 }
 ?>
