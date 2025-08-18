@@ -3,21 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="LLEgMgIuI53ZD1M8yQVWOs_vDL3y14uSvYgFExIR47E" />
-    <meta name="description" content="Professional brand strategy consulting services for businesses in South India. Build your brand identity and market positioning with our experts.">
+    <meta
+      name="google-site-verification"
+      content="LLEgMgIuI53ZD1M8yQVWOs_vDL3y14uSvYgFExIR47E"
+    />
+    <meta
+      name="description"
+      content="Professional brand strategy consulting services for businesses in South India. Build your brand identity and market positioning with our experts."
+    />
     <title>Brand Strategy Consulting Services | KSquare Media</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+      /* Custom styles for falling AI icons */
+      .banner-icons-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .falling-icon {
+        position: absolute;
+        font-size: 1.5rem;
+        color: white;
+        opacity: 0.8;
+        animation-fill-mode: forwards;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      @keyframes iconFall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
       /* Pricing Section Styles */
       .pricing-section {
         padding: 80px 0;
@@ -194,7 +255,8 @@
       <div class="container">
         <h1 data-aos="fade-up">Brand & Strategy Consultancy</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Transform your business with expert brand positioning and growth strategies
+          Transform your business with expert brand positioning and growth
+          strategies
         </p>
       </div>
       <div class="banner-wave">
@@ -293,7 +355,11 @@
           </div>
 
           <!-- Premium Plan -->
-          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="pricing-card popular"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <h3>Enterprise Solution</h3>
             <div class="price">₹59,999<span>/project</span></div>
             <p>Comprehensive strategy for established businesses</p>
@@ -311,10 +377,23 @@
             <a href="contact.html" class="btn-primary">Choose Plan</a>
           </div>
         </div>
-        
-        <div class="custom-solution" style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+
+        <div
+          class="custom-solution"
+          style="text-align: center; margin-top: 40px"
+          data-aos="fade-up"
+        >
           <p>Need a customized solution for your business?</p>
-          <a href="contact.html" class="btn-primary" style="background: transparent; border: 2px solid #8e2de2; color: #8e2de2;">Request Custom Proposal</a>
+          <a
+            href="contact.html"
+            class="btn-primary"
+            style="
+              background: transparent;
+              border: 2px solid #8e2de2;
+              color: #8e2de2;
+            "
+            >Request Custom Proposal</a
+          >
         </div>
       </div>
     </section>
@@ -336,13 +415,45 @@
             </ul>
           </div>
           <div class="footer-contact">
-            <h3>Contact Us</h3>
+            <h3>Contact us</h3>
             <p>
-              <i class="fas fa-map-marker-alt"></i> 2nd Floor, 5-912/D,
-              Mangalagiri, Andhra Pradesh 522503
+              <i class="fas fa-map-marker-alt"></i>
+              <a
+                href="https://maps.app.goo.gl/toNDFUNNHaPuEM6x9"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open in Google Maps"
+              >
+                2nd floor, subramanyam complex, Nh5 bypass, beside indian bank,
+                Mangalagiri, Andhra Pradesh 522503
+              </a>
             </p>
-            <p><i class="fas fa-envelope"></i> ksquaremedia@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 79894 28599</p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a
+                href="mailto:ksquaremedia@gmail.com?subject=Enquiry from Website"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Send us an email"
+              >
+                ksquaremedia@gmail.com
+              </a>
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a
+                href="https://wa.me/917989428599"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Chat on WhatsApp"
+              >
+                +91 79894 28599
+                <i
+                  class="fab fa-whatsapp"
+                  style="color: #25d366; margin-left: 5px"
+                ></i>
+              </a>
+            </p>
           </div>
           <div class="footer-social">
             <h3>Follow Us</h3>
@@ -362,70 +473,72 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 120,
-  });
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 120,
+      });
 
-  // Header scroll effect
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
 
-  // Improved falling brand-related icons
-  document.addEventListener("DOMContentLoaded", function () {
-    const bannerIconsContainer = document.getElementById("bannerIcons");
-    const brandIcons = [
-      "fas fa-chess",
-      "fas fa-chess-king",
-      "fas fa-chess-queen",
-      "fas fa-chess-pawn",
-      "fas fa-chess-rook",
-      "fas fa-chess-knight",
-      "fas fa-chess-bishop",
-      "fas fa-crown",
-      "fas fa-chess-board",
-      "fas fa-project-diagram",
-      "fas fa-bullseye",
-      "fas fa-chart-line"
-    ];
+      // Improved falling brand-related icons
+      document.addEventListener("DOMContentLoaded", function () {
+        const bannerIconsContainer = document.getElementById("bannerIcons");
+        const brandIcons = [
+          "fas fa-chess",
+          "fas fa-chess-king",
+          "fas fa-chess-queen",
+          "fas fa-chess-pawn",
+          "fas fa-chess-rook",
+          "fas fa-chess-knight",
+          "fas fa-chess-bishop",
+          "fas fa-crown",
+          "fas fa-chess-board",
+          "fas fa-project-diagram",
+          "fas fa-bullseye",
+          "fas fa-chart-line",
+        ];
 
-    function createFallingIcon() {
-      const icon = document.createElement("i");
-      icon.className = brandIcons[Math.floor(Math.random() * brandIcons.length)] + " falling-icon";
-      
-      // Random position at top
-      icon.style.left = Math.random() * 100 + "%";
-      
-      // Random size
-      icon.style.fontSize = (0.8 + Math.random() * 1.5) + "rem";
-      
-      // Slower, smoother animation (10-20 seconds)
-      const duration = 10 + Math.random() * 10;
-      icon.style.animation = `iconFall ${duration}s linear infinite`;
-      
-      // Random rotation
-      const rotation = Math.random() * 360;
-      icon.style.setProperty('--rotation', `${rotation}deg`);
-      
-      bannerIconsContainer.appendChild(icon);
+        function createFallingIcon() {
+          const icon = document.createElement("i");
+          icon.className =
+            brandIcons[Math.floor(Math.random() * brandIcons.length)] +
+            " falling-icon";
 
-      // Remove icon after animation completes
-      setTimeout(() => {
-        icon.remove();
-      }, duration * 1000);
-    }
+          // Random position at top
+          icon.style.left = Math.random() * 100 + "%";
 
-    // Add CSS animation with rotation
-    const style = document.createElement('style');
-    style.textContent = `
+          // Random size
+          icon.style.fontSize = 0.8 + Math.random() * 1.5 + "rem";
+
+          // Slower, smoother animation (10-20 seconds)
+          const duration = 10 + Math.random() * 10;
+          icon.style.animation = `iconFall ${duration}s linear infinite`;
+
+          // Random rotation
+          const rotation = Math.random() * 360;
+          icon.style.setProperty("--rotation", `${rotation}deg`);
+
+          bannerIconsContainer.appendChild(icon);
+
+          // Remove icon after animation completes
+          setTimeout(() => {
+            icon.remove();
+          }, duration * 1000);
+        }
+
+        // Add CSS animation with rotation
+        const style = document.createElement("style");
+        style.textContent = `
       @keyframes iconFall {
         0% {
           transform: translateY(-100px) rotate(0deg);
@@ -440,16 +553,16 @@
         }
       }
     `;
-    document.head.appendChild(style);
+        document.head.appendChild(style);
 
-    // Create initial icons
-    for (let i = 0; i < 15; i++) {
-      setTimeout(createFallingIcon, i * 500); // Slower creation
-    }
+        // Create initial icons
+        for (let i = 0; i < 15; i++) {
+          setTimeout(createFallingIcon, i * 500); // Slower creation
+        }
 
-    // Continuous creation
-    setInterval(createFallingIcon, 1500);
-  });
-</script>
+        // Continuous creation
+        setInterval(createFallingIcon, 1500);
+      });
+    </script>
   </body>
 </html>

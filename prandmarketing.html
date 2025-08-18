@@ -18,6 +18,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+       /* Custom styles for falling AI icons */
+      .banner-icons-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .falling-icon {
+        position: absolute;
+        font-size: 1.5rem;
+        color: white;
+        opacity: 0.8;
+        animation-fill-mode: forwards;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      @keyframes iconFall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
       /* Pricing Section Styles */
       .pricing-section {
         padding: 80px 0;
@@ -224,8 +259,8 @@
             <div class="value-icon">
               <i class="fas fa-users"></i>
             </div>
-            <h3>Crisis Management</h3>
-            <p>Protect your reputation during challenging times</p>
+            <h3>Content Marketing</h3>
+            <p>Strategic content creation to engage your audience</p>
           </div>
           <div class="value-card" data-aos="fade-up" data-aos-delay="400">
             <div class="value-icon">
@@ -301,15 +336,47 @@
               <li><a href="about.html">About Us</a></li>
             </ul>
           </div>
-          <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>
-              <i class="fas fa-map-marker-alt"></i> 2nd Floor, 5-912/D,
-              Mangalagiri, Andhra Pradesh 522503
-            </p>
-            <p><i class="fas fa-envelope"></i> ksquaremedia@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 79894 28599</p>
-          </div>
+                      <div class="footer-contact">
+              <h3>Contact us</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i>
+                <a
+                  href="https://maps.app.goo.gl/toNDFUNNHaPuEM6x9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Open in Google Maps"
+                >
+                  2nd floor, subramanyam complex, Nh5 bypass, beside indian
+                  bank, Mangalagiri, Andhra Pradesh 522503
+                </a>
+              </p>
+              <p>
+                <i class="fas fa-envelope"></i>
+                <a
+                  href="mailto:ksquaremedia@gmail.com?subject=Enquiry from Website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Send us an email"
+                >
+                  ksquaremedia@gmail.com
+                </a>
+              </p>
+              <p>
+                <i class="fas fa-phone"></i>
+                <a
+                  href="https://wa.me/917989428599"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Chat on WhatsApp"
+                >
+                  +91 79894 28599
+                  <i
+                    class="fab fa-whatsapp"
+                    style="color: #25d366; margin-left: 5px"
+                  ></i>
+                </a>
+              </p>
+            </div>
           <div class="footer-social">
             <h3>Follow Us</h3>
             <div class="social-icons">
