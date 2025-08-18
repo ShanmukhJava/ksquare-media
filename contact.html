@@ -126,7 +126,8 @@
               </div>
               <div class="contact-text">
                 <h3>Our Location</h3>
-                <p>2nd Floor, 5-912/D, Mangalagiri, Andhra Pradesh 522503</p>
+                <p>2nd floor, subramanyam complex, Nh5 bypass, beside indian bank, Mangalagiri, Andhra Pradesh 522503
+</p>
               </div>
             </div>
             <div class="contact-item">
@@ -245,7 +246,8 @@
         </div>
         <div class="map-container" data-aos="zoom-in">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.7731945279!2d80.54500731486!3d16.4307899887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f0a2a7d81943%3A0x8ba5d78f65df94b8!2sMangalagiri%2C%20Andhra%20Pradesh%20522503!5e0!3m2!1sen!2sin!4v1623456789012!5m2!1sen!2sin"
+          
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d239.18790487643932!2d80.57478694768236!3d16.424497392825696!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f15cb4db5b69%3A0x277d9046611732ec!2sK%C2%B2%20Media%20Hub!5e0!3m2!1sen!2sin!4v1755493777044!5m2!1sen!2sin"
             width="100%"
             height="450"
             style="border: 0"
@@ -316,40 +318,58 @@
       });
     </script>
     <script>
-      document
-        .getElementById("appointmentForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+document
+  .getElementById("appointmentForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
 
-          const data = {
-            name: document.getElementById("name").value.trim(),
-            email: document.getElementById("email").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            service: document.getElementById("service").value,
-            date: document.getElementById("date").value,
-            message: document.getElementById("message").value.trim(),
-          };
+    // Show loading message
+    const submitButton = document.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
 
-          fetch("http://localhost:3001/send-email", {
-            // Change URL to your backend in production
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          })
-            .then((response) => {
-              if (!response.ok) throw new Error("Network response was not ok");
-              return response.text();
-            })
-            .then((text) => {
-              // alert(text); // Success message from backend
-              document.getElementById("appointmentForm").reset();
-            })
-            .catch((error) => {
-              alert("Failed to send email: " + error.message);
-            });
-        });
+    const data = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value,
+      message: document.getElementById("message").value.trim(),
+    };
+
+    // Fixed: Use 'data' instead of 'formData'
+    fetch('/send-email.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)  // Changed from formData to data
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();  // Changed to json() instead of text()
+    })
+    .then(result => {
+      if (result.message) {
+        alert('✅ ' + result.message);
+        document.getElementById("appointmentForm").reset();
+      } else if (result.error) {
+        alert('❌ Error: ' + result.error);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('❌ Failed to send email. Please try again or contact us directly.');
+    })
+    .finally(() => {
+      // Reset button
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    });
+  });
     </script>
   </body>
 </html>
