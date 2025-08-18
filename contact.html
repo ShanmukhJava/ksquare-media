@@ -316,60 +316,42 @@
           header.classList.remove("scrolled");
         }
       });
-    </script>
-    <script>
-document
-  .getElementById("appointmentForm")
-  .addEventListener("submit", function (e) {
+      document.getElementById("appointmentForm").addEventListener("submit", function(e) {
     e.preventDefault();
-
-    // Show loading message
-    const submitButton = document.querySelector('button[type="submit"]');
+    
+    const submitButton = e.target.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
 
-    const data = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      service: document.getElementById("service").value,
-      date: document.getElementById("date").value,
-      message: document.getElementById("message").value.trim(),
-    };
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-    // Fixed: Use 'data' instead of 'formData'
-    fetch('/send-email.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)  // Changed from formData to data
+    fetch('send_email.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data).toString()
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();  // Changed to json() instead of text()
-    })
+    .then(response => response.json())
     .then(result => {
-      if (result.message) {
-        alert('✅ ' + result.message);
-        document.getElementById("appointmentForm").reset();
-      } else if (result.error) {
-        alert('❌ Error: ' + result.error);
-      }
+        if (result.success) {
+            alert('✅ ' + result.message);
+            e.target.reset();
+        } else {
+            alert('❌ Error: ' + (result.error || 'Failed to send message'));
+        }
     })
     .catch(error => {
-      console.error('Error:', error);
-      alert('❌ Failed to send email. Please try again or contact us directly.');
+        console.error('Error:', error);
+        alert('❌ Failed to send email. Please try again or contact us directly at ksquaremedia@gmail.com');
     })
     .finally(() => {
-      // Reset button
-      submitButton.textContent = originalText;
-      submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
     });
-  });
+});
     </script>
   </body>
 </html>
