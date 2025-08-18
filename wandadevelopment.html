@@ -128,6 +128,209 @@
         color: #666;
         line-height: 1.6;
       }
+            /* Pricing Section Styles */
+      .pricing-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+      }
+
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .pricing-header h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .pricing-header .underline {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        margin: 0 auto 20px;
+      }
+
+      .pricing-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+      }
+
+      .pricing-features {
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+        /* Enterprise Card Styles */
+      .enterprise-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 2px solid #4a00e0;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        max-width: 800px;
+        margin: 40px auto;
+      }
+
+      .enterprise-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+      }
+
+      .enterprise-card h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .enterprise-card .price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .enterprise-features {
+        margin: 30px 0;
+        text-align: center;
+      }
+
+      .enterprise-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+        list-style-type: none;
+      }
+
+      .enterprise-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .enterprise-cta {
+        margin-top: 30px;
+      }
+
+      .btn-enterprise {
+        display: inline-block;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-enterprise:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
+      }
     </style>
   </head>
   <body>
@@ -223,6 +426,80 @@
             </div>
             <h3>Custom Web Applications</h3>
             <p>Tailored solutions for your unique business requirements</p>
+          </div>
+        </div>
+      </div>
+    </section>
+         <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Pricing</h2>
+          <div class="underline"></div>
+          <p>Simple, transparent pricing for your social media needs</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Starter</h3>
+            <div class="price">₹4999<span>/month</span></div>
+            <p>Perfect for small businesses getting started online</p>
+            <ul class="pricing-features">
+              <li>Stunning Static website creation</li>
+              <li>Free domain for a month</li>
+              <li>Additonal meta ad boost for the website</li>
+              <li>Basic SEO</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Started</a>
+          </div>
+
+          <!-- Growth Plan (Popular) -->
+          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+            <h3>Growth</h3>
+            <div class="price">₹10999<span>/month</span></div>
+            <p>Ideal for growing businesses with more needs</p>
+            <ul class="pricing-features">
+              <li>Everything in Starter +</li>
+              <li>Advanced SEO optimisation</li>
+              <li>A form and email submission in the site</li>
+              <li>Two ads boost for the wesbite</li>
+              <li>Monthly performance reports</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Premium</h3>
+            <div class="price">₹19999<span>/month</span></div>
+            <p>Complete solution for established businesses</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth +</li>
+              <li>Custom backend with stunning static website</li>
+              <li>Advanced SEO optimisation</li>
+              <li>Frequenct ad boost up for website</li>
+              <li>Organic Growth Strategy</li>
+              <li>6 months domian free</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+        </div><div class="enterprise-card" data-aos="fade-up" data-aos-delay="400">
+          <h3>Enterprise Solutions</h3>
+          <div class="price">Custom Pricing</div>
+          <p>Tailored web and app solutions for large-scale businesses</p>
+          <ul class="enterprise-features">
+            <li>Custom web applications with complex functionality</li>
+            <li>Enterprise-grade mobile apps with advanced features</li>
+            <li>Dedicated development team</li>
+            <li>Priority support and maintenance</li>
+            <li>Scalable infrastructure and architecture</li>
+            <li>API integrations with third-party services</li>
+          </ul>
+          <div class="enterprise-cta">
+            <p>Contact our sales team for a customized quote</p>
+            <br>
+            <a href="contact.html" class="btn-enterprise">Talk to Sales</a>
           </div>
         </div>
       </div>
