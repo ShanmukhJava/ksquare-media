@@ -3,130 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="LLEgMgIuI53ZD1M8yQVWOs_vDL3y14uSvYgFExIR47E" />
+    <meta name="description" content="Best PR & Marketing Agency in South India. Elevate your brand with strategic communications, media relations, and digital marketing in Chennai, Bangalore & Hyderabad.">
     <title>PR & Marketing Agency - KSquare Media</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-      /* Custom styles for falling PR & Marketing icons */
-      .banner-icons-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-        overflow: hidden;
-      }
-
-      .falling-icon {
-        position: absolute;
-        font-size: 1.5rem;
-        color: white;
-        opacity: 0.8;
-        animation-fill-mode: forwards;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-      }
-
-      @keyframes iconFall {
-        0% {
-          transform: translateY(-100px) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.8;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      /* Ensure page-banner is positioned relatively */
-      .page-banner {
-        position: relative;
-      }
-
-      /* PR & Marketing Services Section */
-      .pr-services {
+      /* Pricing Section Styles */
+      .pricing-section {
         padding: 80px 0;
+        background-color: #f9f9f9;
       }
 
-      .pr-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-      }
-
-      .pr-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
+      .pricing-header {
         text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        border: 1px solid rgba(74, 0, 224, 0.1);
+        margin-bottom: 50px;
       }
 
-      .pr-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        border-color: rgba(74, 0, 224, 0.2);
-      }
-
-      .pr-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #4a00e0, #8e2de2);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        color: white;
-        font-size: 1.8rem;
-        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
-      }
-
-      .pr-card h3 {
-        font-size: 1.4rem;
+      .pricing-header h2 {
+        font-size: 2.5rem;
+        color: #333;
         margin-bottom: 15px;
+      }
+
+      .pricing-header .underline {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        margin: 0 auto 20px;
+      }
+
+      .pricing-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
         color: #333;
       }
 
-      .pr-card p {
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
         color: #666;
-        line-height: 1.6;
+      }
+
+      .pricing-features {
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
       }
     </style>
   </head>
@@ -134,11 +162,7 @@
     <header>
       <div class="container">
         <div class="logo">
-          <img
-            src="images/main_logo.png"
-            alt="KSquare Media Logo"
-            class="company-logo"
-          />
+          <img src="images/main_logo.png" alt="KSquare Media Logo" class="company-logo" />
           <h1 class="fade-in">K<sup>2</sup> Media hub</h1>
         </div>
         <nav>
@@ -158,14 +182,10 @@
     </header>
 
     <section class="page-banner">
-      <!-- Container for falling PR & Marketing icons -->
       <div class="banner-icons-container" id="bannerIcons"></div>
-
-      <!-- Back button -->
       <a href="services.html" class="back-button">
         <i class="fas fa-arrow-left"></i> Back to Services
       </a>
-
       <div class="container">
         <h1 data-aos="fade-up">PR & Marketing Agency</h1>
         <p data-aos="fade-up" data-aos-delay="200">
@@ -173,55 +193,93 @@
         </p>
       </div>
       <div class="banner-wave">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          style="height: 100%; width: 100%"
-        >
-          <path
-            fill="#ffffff"
-            fill-opacity="1"
-            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 100%; width: 100%">
+          <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
     </section>
 
-    <section class="pr-services">
+    <section class="values">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <h2>Our PR & Marketing Services</h2>
+          <h2>Our PR & Marketing Strategy</h2>
           <div class="underline"></div>
         </div>
-        <div class="pr-grid">
-          <div class="pr-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="pr-icon">
+        <div class="values-grid">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-icon">
               <i class="fas fa-bullhorn"></i>
             </div>
-            <h3>Public Relations</h3>
-            <p>Strategic media relations and reputation management</p>
+            <h3>Media Relations</h3>
+            <p>Strategic outreach to journalists and media outlets</p>
           </div>
-          <div class="pr-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="pr-icon">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-icon">
               <i class="fas fa-ad"></i>
             </div>
-            <h3>Brand Marketing</h3>
-            <p>Comprehensive campaigns to build brand awareness</p>
+            <h3>Brand Positioning</h3>
+            <p>Develop compelling narratives for your brand</p>
           </div>
-          <div class="pr-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="pr-icon">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-icon">
               <i class="fas fa-users"></i>
             </div>
-            <h3>Influencer Marketing</h3>
-            <p>Leverage key opinion leaders to amplify your message</p>
+            <h3>Crisis Management</h3>
+            <p>Protect your reputation during challenging times</p>
           </div>
-          <div class="pr-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="pr-icon">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-icon">
               <i class="fas fa-chart-line"></i>
             </div>
-            <h3>Digital PR</h3>
-            <p>Online reputation management and digital storytelling</p>
+            <h3>Performance Tracking</h3>
+            <p>Measure and optimize campaign effectiveness</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>PR & Marketing Packages</h2>
+          <div class="underline"></div>
+          <p>Tailored solutions for businesses of all sizes</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Basic Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Basic</h3>
+            <div class="price">₹14,999<span>/month</span></div>
+            <p>For startups and small businesses</p>
+            <ul class="pricing-features">
+              <li>2 Press Releases per month</li>
+              <li>Media Outreach to 10 outlets</li>
+              <li>Basic Social Media Promotion</li>
+              <li>Monthly Performance Report</li>
+              <li>1 Brand Story Development</li>
+              <li>Email Support</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Started</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+            <h3>Premium</h3>
+            <div class="price">₹29,999<span>/month</span></div>
+            <p>For established businesses & enterprises</p>
+            <ul class="pricing-features">
+              <li>4 Press Releases per month</li>
+              <li>Media Outreach to 25+ outlets</li>
+              <li>Dedicated PR Manager</li>
+              <li>Influencer Collaborations (2/month)</li>
+              <li>Comprehensive Social Media Campaign</li>
+              <li>Weekly Performance Reports</li>
+              <li>24/7 Crisis Management Support</li>
+              <li>Quarterly Brand Strategy Session</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
           </div>
         </div>
       </div>
@@ -271,29 +329,29 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script>
-      // Initialize AOS animations
+     // Initialize AOS animations
       AOS.init({
         duration: 800,
         once: true,
       });
 
-      // Falling PR & Marketing icons in page-banner
+      // Falling AI icons in page-banner
       document.addEventListener("DOMContentLoaded", function () {
         const bannerIconsContainer = document.getElementById("bannerIcons");
-        const prIcons = [
-          "fas fa-newspaper",
-          "fas fa-microphone",
-          "fas fa-hashtag",
-          "fas fa-video",
-          "fas fa-camera",
-          "fas fa-podcast",
-          "fas fa-share-alt",
+        const aiIcons = [
+          "fas fa-robot",
+          "fas fa-brain",
+          "fas fa-microchip",
+          "fas fa-cogs",
+          "fas fa-network-wired",
+          "fas fa-chart-line",
+          "fas fa-code"
         ];
 
         function createFallingIcon() {
           const icon = document.createElement("i");
           icon.className = `${
-            prIcons[Math.floor(Math.random() * prIcons.length)]
+            aiIcons[Math.floor(Math.random() * aiIcons.length)]
           } falling-icon`;
 
           // Set random position
@@ -325,38 +383,6 @@
         // Continue creating new icons
         setInterval(createFallingIcon, 800);
       });
-
-      // Back to top button
-      const scrollToTopBtn = document.querySelector(".scroll-to-top");
-      window.addEventListener("scroll", () => {
-        scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
-      });
-      scrollToTopBtn.addEventListener("click", () =>
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      );
-
-      // Mobile menu toggle
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-      });
-
-      // Close menu when clicking links
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          navLinks.classList.remove("active");
-        });
-      });
-
-      // Sticky header
-      window.addEventListener("scroll", function () {
-        document
-          .querySelector("header")
-          .classList.toggle("scrolled", window.scrollY > 60);
-      });
     </script>
   </body>
-</html>
+</html></html>

@@ -3,80 +3,160 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media Management - KSquare Media</title>
+    <meta name="google-site-verification" content="LLEgMgIuI53ZD1M8yQVWOs_vDL3y14uSvYgFExIR47E" />
+    <meta name="description" content="Professional brand strategy consulting services for businesses in South India. Build your brand identity and market positioning with our experts.">
+    <title>Brand Strategy Consulting Services | KSquare Media</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-      /* Custom styles for falling social media logos */
-      .banner-icons-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-        overflow: hidden;
+      /* Pricing Section Styles */
+      .pricing-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
       }
 
-      .falling-icon {
-        position: absolute;
-        font-size: 1.5rem;
-        color: white;
-        opacity: 0.8;
-        animation-fill-mode: forwards;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 50px;
       }
 
-      @keyframes iconFall {
-        0% {
-          transform: translateY(-100px) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.8;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
+      .pricing-header h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
       }
 
+      .pricing-header .underline {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        margin: 0 auto 20px;
+      }
 
+      .pricing-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
 
-      /* Ensure page-banner is positioned relatively */
-      .page-banner {
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
         position: relative;
-      }a
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Recommended";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+      }
+
+      .pricing-features {
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
+      }
     </style>
   </head>
   <body>
@@ -107,18 +187,14 @@
     </header>
 
     <section class="page-banner">
-      <!-- Container for falling social media icons -->
       <div class="banner-icons-container" id="bannerIcons"></div>
-
-      <!-- Back button -->
       <a href="services.html" class="back-button">
         <i class="fas fa-arrow-left"></i> Back to Services
       </a>
-
       <div class="container">
-        <h1 data-aos="fade-up">Brand & stratagy consultancy</h1>
+        <h1 data-aos="fade-up">Brand & Strategy Consultancy</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Professional social media strategies to grow your online presence
+          Transform your business with expert brand positioning and growth strategies
         </p>
       </div>
       <div class="banner-wave">
@@ -140,7 +216,7 @@
     <section class="values">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <h2>Our strategy</h2>
+          <h2>Our Approach</h2>
           <div class="underline"></div>
         </div>
         <div class="values-grid">
@@ -187,8 +263,60 @@
         </div>
       </div>
     </section>
-    <section>
-      <h1 class="pricing">Coming soon..........  </h1>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Consulting Packages</h2>
+          <div class="underline"></div>
+          <p>Strategic solutions tailored to your business size and needs</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Basic Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Startup Strategy</h3>
+            <div class="price">₹24,999<span>/project</span></div>
+            <p>For early-stage businesses establishing their brand</p>
+            <ul class="pricing-features">
+              <li>Brand Identity Workshop (2 sessions)</li>
+              <li>Core Messaging Framework</li>
+              <li>Competitor Analysis Report</li>
+              <li>Basic Visual Identity Guidelines</li>
+              <li>3-Month Growth Roadmap</li>
+              <li>2 Strategy Implementation Calls</li>
+              <li class="disabled">Executive Coaching</li>
+              <li class="disabled">Market Expansion Planning</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Started</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+            <h3>Enterprise Solution</h3>
+            <div class="price">₹59,999<span>/project</span></div>
+            <p>Comprehensive strategy for established businesses</p>
+            <ul class="pricing-features">
+              <li>In-Depth Brand Audit</li>
+              <li>Complete Brand Positioning Strategy</li>
+              <li>Market Segmentation Analysis</li>
+              <li>Full Visual Identity System</li>
+              <li>12-Month Growth Roadmap</li>
+              <li>Monthly Strategy Sessions (6 months)</li>
+              <li>Executive Coaching (4 sessions)</li>
+              <li>Market Expansion Blueprint</li>
+              <li>Employee Brand Training</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+        </div>
+        
+        <div class="custom-solution" style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+          <p>Need a customized solution for your business?</p>
+          <a href="contact.html" class="btn-primary" style="background: transparent; border: 2px solid #8e2de2; color: #8e2de2;">Request Custom Proposal</a>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -234,70 +362,94 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 120,
-      });
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 120,
+  });
 
-      // Header scroll effect
-      window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
+  // Header scroll effect
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  // Improved falling brand-related icons
+  document.addEventListener("DOMContentLoaded", function () {
+    const bannerIconsContainer = document.getElementById("bannerIcons");
+    const brandIcons = [
+      "fas fa-chess",
+      "fas fa-chess-king",
+      "fas fa-chess-queen",
+      "fas fa-chess-pawn",
+      "fas fa-chess-rook",
+      "fas fa-chess-knight",
+      "fas fa-chess-bishop",
+      "fas fa-crown",
+      "fas fa-chess-board",
+      "fas fa-project-diagram",
+      "fas fa-bullseye",
+      "fas fa-chart-line"
+    ];
+
+    function createFallingIcon() {
+      const icon = document.createElement("i");
+      icon.className = brandIcons[Math.floor(Math.random() * brandIcons.length)] + " falling-icon";
+      
+      // Random position at top
+      icon.style.left = Math.random() * 100 + "%";
+      
+      // Random size
+      icon.style.fontSize = (0.8 + Math.random() * 1.5) + "rem";
+      
+      // Slower, smoother animation (10-20 seconds)
+      const duration = 10 + Math.random() * 10;
+      icon.style.animation = `iconFall ${duration}s linear infinite`;
+      
+      // Random rotation
+      const rotation = Math.random() * 360;
+      icon.style.setProperty('--rotation', `${rotation}deg`);
+      
+      bannerIconsContainer.appendChild(icon);
+
+      // Remove icon after animation completes
+      setTimeout(() => {
+        icon.remove();
+      }, duration * 1000);
+    }
+
+    // Add CSS animation with rotation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes iconFall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
         }
-      });
-
-      // Falling brand-related icons
-      document.addEventListener("DOMContentLoaded", function () {
-        const bannerIconsContainer = document.getElementById("bannerIcons");
-        const brandIcons = [
-          "fas fa-chess",
-          "fas fa-chess-king",
-          "fas fa-chess-queen",
-          "fas fa-chess-pawn",
-          "fas fa-chess-rook",
-          "fas fa-chess-knight",
-          "fas fa-chess-bishop",
-          "fas fa-crown",
-          "fas fa-chess-board",
-          "fas fa-project-diagram",
-          "fas fa-bullseye",
-          "fas fa-chart-line",
-        ];
-
-        function createFallingIcon() {
-          const icon = document.createElement("i");
-          icon.className =
-            brandIcons[Math.floor(Math.random() * brandIcons.length)] +
-            " falling-icon";
-
-          icon.style.left = Math.random() * 100 + "%";
-          icon.style.fontSize = 0.8 + Math.random() * 1.5 + "rem";
-
-          const duration = 8 + Math.random() * 7;
-          icon.style.animation = `iconFall ${duration}s linear infinite`;
-
-          bannerIconsContainer.appendChild(icon);
-
-          setTimeout(() => {
-            if (icon.parentNode === bannerIconsContainer) {
-              bannerIconsContainer.removeChild(icon);
-            }
-          }, duration * 1000);
+        10% {
+          opacity: 0.8;
         }
-
-        // Create initial icons
-        for (let i = 0; i < 15; i++) {
-          setTimeout(createFallingIcon, i * 300);
+        100% {
+          transform: translateY(100vh) rotate(var(--rotation, 360deg));
+          opacity: 0;
         }
+      }
+    `;
+    document.head.appendChild(style);
 
-        // Keep creating new icons
-        setInterval(createFallingIcon, 800);
-      });
-    </script>
+    // Create initial icons
+    for (let i = 0; i < 15; i++) {
+      setTimeout(createFallingIcon, i * 500); // Slower creation
+    }
+
+    // Continuous creation
+    setInterval(createFallingIcon, 1500);
+  });
+</script>
   </body>
 </html>
