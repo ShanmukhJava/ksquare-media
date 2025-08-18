@@ -70,6 +70,145 @@
           opacity: 0;
         }
       }
+
+      /* Pricing Section Styles */
+      .pricing-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+      }
+
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .pricing-header h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .pricing-header .underline {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        margin: 0 auto 20px;
+      }
+
+      .pricing-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+      }
+
+      .pricing-features {
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(74, 0, 224, 0.2);
+      }
     </style>
   </head>
   <body>
@@ -171,8 +310,66 @@
         </div>
       </div>
     </section>
-    <section>
-      <h1 class="pricing">Pricing for growth</h1>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Pricing</h2>
+          <div class="underline"></div>
+          <p>Simple, transparent pricing for your social media needs</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Starter</h3>
+            <div class="price">₹3999<span>/month</span></div>
+            <p>Perfect for small businesses getting started online</p>
+            <ul class="pricing-features">
+              <li>8 Posts, 1 Carousel, 2 Motion Posts</li>
+              <li>3 Highlights</li>
+              <li>8 Stories</li>
+              <li>1 Reach Campaign</li>
+              <li>1 Video Editing</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Started</a>
+          </div>
+
+          <!-- Growth Plan (Popular) -->
+          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+            <h3>Growth</h3>
+            <div class="price">₹6999<span>/month</span></div>
+            <p>Ideal for growing businesses with more needs</p>
+            <ul class="pricing-features">
+              <li>Everything in Starter +</li>
+              <li>10 Posts, 3 Videos</li>
+              <li>2 Lead Reach Campaigns</li>
+              <li>Comprehensive Engagement</li>
+              <li>High Visibility</li>
+              <li>1 Video Editing</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Premium</h3>
+            <div class="price">₹9999<span>/month</span></div>
+            <p>Complete solution for established businesses</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth +</li>
+              <li>Daily Stories</li>
+              <li>6 Reels/Shorts</li>
+              <li>1 UGC Video</li>
+              <li>Content Writing</li>
+              <li>Organic Growth Strategy</li>
+              <li>2 Leads Management</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -219,6 +416,12 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
       // Create falling social media icons
       function createFallingIcons() {
         const container = document.getElementById("bannerIcons");
