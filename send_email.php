@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth   = true;
         $mail->Username   = 'mailing@ksquaremediahub.in'; // your Hostinger email
         $mail->Password   = 'Klevant@2025'; // password for that email
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // use 'tls' if 587
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  // use 'tls' if 587
         $mail->Port       = 465;   // 587 if TLS
 
         // Sender & recipient
