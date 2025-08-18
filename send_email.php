@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userEmail = $_POST['userEmail']; // Email entered in form
@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth   = true;
         $mail->Username   = 'mailing@ksquaremediahub.in'; // your Hostinger email
         $mail->Password   = 'Klevant@2025'; // password for that email
-        $mail->SMTPSecure = 'ssl'; // use 'tls' if 587
-        $mail->Port       = 995;   // 587 if TLS
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // use 'tls' if 587
+        $mail->Port       = 465;   // 587 if TLS
 
         // Sender & recipient
         $mail->setFrom('mailing@ksquaremediahub.in', 'ksquaremediahub.in');
