@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="LLEgMgIuI53ZD1M8yQVWOs_vDL3y14uSvYgFExIR47E"
+    />
+    <meta
+      name="description"
+      content="Join KSquare Media's talented team. Explore career opportunities in digital marketing, web development, graphic design and more."
+    />
+    <title>Careers - KSquare Media</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      /* Careers Page Specific Styles */
+      .job-openings {
+        padding: 80px 0;
+      }
+
+      .job-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .job-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border-left: 4px solid #4a00e0;
+      }
+
+      .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .job-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #4a00e0;
+      }
+
+      .job-meta {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        color: #666;
+        font-size: 0.7rem;
+      }
+
+      .job-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .job-meta i {
+        color: #8e2de2;
+      }
+
+      .job-description {
+        margin-bottom: 20px;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .job-skills {
+        margin-bottom: 20px;
+      }
+
+      .job-skills h4 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        background: rgba(74, 0, 224, 0.1);
+        color: #4a00e0;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .apply-btn {
+        display: inline-block;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(74, 0, 224, 0.2);
+      }
+
+      .benefits {
+        background: #f9f9f9;
+        padding: 80px 0;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .benefit-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .benefit-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .benefit-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .benefit-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .application-process {
+        padding: 80px 0;
+      }
+
+      .process-steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .process-step {
+        flex: 0 0 200px;
+        text-align: center;
+        position: relative;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 40px;
+        right: -30px;
+        width: 30px;
+        height: 2px;
+        background: #8e2de2;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .process-step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      .process-step p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .process-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .process-step:not(:last-child)::after {
+          display: none;
+        }
+
+        .process-step {
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html">
+          <div class="logo">
+            <img
+              src="images/main_logo.png"
+              alt="KSquare Media Logo"
+              class="company-logo"
+            />
+            <h1 class="fade-in">K<sup>2</sup> Media Hub</h1>
+          </div>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html" class="active">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="container">
+        <h1 data-aos="fade-up">Careers at KSquare Media</h1>
+        <p data-aos="fade-up" data-aos-delay="200">
+          Join our team of creative and innovative professionals
+        </p>
+      </div>
+      <div class="banner-wave">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style="height: 100%; width: 100%"
+        >
+          <path
+            fill="#ffffff"
+            fill-opacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="job-openings">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Current Open Positions</h2>
+          <div class="underline"></div>
+          <p>Explore our available roles and find your perfect fit</p>
+        </div>
+
+        <div class="job-grid">
+          <!-- Graphic Designer Position -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Graphic Designer</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time</span>
+              <span><i class="fas fa-map-marker-alt"></i> Mangalagiri</span>
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                We're looking for a creative Graphic Designer to create engaging
+                and on-brand graphics for a variety of media including social
+                media, websites, and print materials.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Adobe Photoshop</span>
+                <span class="skill-tag">Illustrator</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Branding</span>
+                <span class="skill-tag">Canva</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+
+          <!-- Web Developer Position -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>Web Developer</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time</span>
+              <span
+                ><i class="fas fa-map-marker-alt"></i> Mangalagiri/Remote</span
+              >
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                Join our development team to build responsive, user-friendly
+                websites and web applications using modern technologies and best
+                practices.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">WordPress</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+
+          <!-- Digital Marketing Specialist -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Digital Marketing Specialist</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time</span>
+              <span><i class="fas fa-map-marker-alt"></i> Mangalagiri</span>
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                We need a results-driven digital marketer to plan and execute
+                digital marketing campaigns across various channels including
+                social media, SEO, and PPC.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">SEO</span>
+                <span class="skill-tag">Social Media</span>
+                <span class="skill-tag">Google Ads</span>
+                <span class="skill-tag">Content Marketing</span>
+                <span class="skill-tag">Analytics</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+
+          <!-- Video Editor Position -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="400">
+            <h3>Video Editor</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time</span>
+              <span><i class="fas fa-map-marker-alt"></i> Mangalagiri</span>
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                Create compelling video content for our clients including social
+                media videos, promotional content, and explainer videos using
+                professional editing tools.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Premiere Pro</span>
+                <span class="skill-tag">After Effects</span>
+                <span class="skill-tag">Motion Graphics</span>
+                <span class="skill-tag">Color Grading</span>
+                <span class="skill-tag">Storytelling</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+
+          <!-- Receptionist Position -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="500">
+            <h3>Receptionist</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time</span>
+              <span><i class="fas fa-map-marker-alt"></i> Mangalagiri</span>
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                Be the welcoming face of KSquare Media! Manage front desk
+                operations, handle calls, and provide administrative support to
+                our team.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">Organization</span>
+                <span class="skill-tag">MS Office</span>
+                <span class="skill-tag">Customer Service</span>
+                <span class="skill-tag">Multitasking</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+
+          <!-- Content Writer Position -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="600">
+            <h3>Content Writer</h3>
+            <div class="job-meta">
+              <span><i class="fas fa-briefcase"></i> Full-time/Part-time</span>
+              <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+              <span><i class="fas fa-clock"></i> Immediate</span>
+            </div>
+            <div class="job-description">
+              <p>
+                Create engaging content for websites, blogs, social media, and
+                marketing materials that resonates with target audiences and
+                drives engagement.
+              </p>
+            </div>
+            <div class="job-skills">
+              <h4>Key Skills:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">SEO Writing</span>
+                <span class="skill-tag">Blogging</span>
+                <span class="skill-tag">Copywriting</span>
+                <span class="skill-tag">Research</span>
+                <span class="skill-tag">Editing</span>
+              </div>
+            </div>
+            <a href="contact.html" class="apply-btn">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Why Join Our Team?</h2>
+          <div class="underline"></div>
+          <p>
+            We offer more than just a job - we offer a rewarding career
+            experience
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Learning & Growth</h3>
+            <p>
+              Continuous learning opportunities with training programs,
+              workshops, and mentorship to help you grow professionally.
+            </p>
+          </div>
+
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Health & Wellness</h3>
+            <p>
+              Comprehensive health benefits and wellness programs to keep you at
+              your best both physically and mentally.
+            </p>
+          </div>
+
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <h3>Work-Life Balance</h3>
+            <p>
+              Flexible work arrangements and generous leave policies to help you
+              maintain a healthy work-life balance.
+            </p>
+          </div>
+
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Great Culture</h3>
+            <p>
+              Join a supportive, collaborative team that values creativity,
+              innovation, and having fun while we work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="application-process">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Our Hiring Process</h2>
+          <div class="underline"></div>
+          <p>Simple and transparent steps to join our team</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">1</div>
+            <h3>Application</h3>
+            <p>Submit your application through our website or email</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">2</div>
+            <h3>Review</h3>
+            <p>Our HR team reviews your application and portfolio</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number">3</div>
+            <h3>Interview</h3>
+            <p>Virtual or in-person interview with our team</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-number">4</div>
+            <h3>Assessment</h3>
+            <p>Practical assessment to showcase your skills</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+            <div class="step-number">5</div>
+            <h3>Offer</h3>
+            <p>Receive and sign your offer letter to join us</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content" data-aos="zoom-in">
+          <h2>Don't See Your Perfect Role?</h2>
+          <p>
+            We're always looking for talented individuals. Send us your resume
+            and we'll contact you when a matching position opens.
+          </p>
+          <!-- <a href="contact.html" class="btn-primary">Submit Your Resume</a> -->
+          <p>
+            <!-- <i class="fas fa-phone"></i> -->
+            <a
+              class="btn-primary"
+              href="https://wa.me/917989428599"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Chat on WhatsApp"
+            >
+              +91 79894 28599
+              <i
+                class="fab fa-whatsapp"
+                style="color: #25d366; margin-left: 5px"
+              ></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>K<sup>2</sup> <span>Media</span></h2>
+            <p>Transforming digital presence in Andhra Pradesh & Telangana</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="about.html">About Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <a
+                href="https://maps.app.goo.gl/toNDFUNNHaPuEM6x9"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open in Google Maps"
+              >
+                2nd floor, subramanyam complex, Nh5 bypass, beside indian bank,
+                Mangalagiri, Andhra Pradesh 522503
+              </a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a
+                href="mailto:ksquaremedia@gmail.com?subject=Enquiry from Website"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Send us an email"
+              >
+                ksquaremedia@gmail.com
+              </a>
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a
+                href="https://wa.me/917989428599"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Chat on WhatsApp"
+              >
+                +91 79894 28599
+                <i
+                  class="fab fa-whatsapp"
+                  style="color: #25d366; margin-left: 5px"
+                ></i>
+              </a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/k2mediahub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a
+                href="https://www.instagram.com/k2mediahub/#"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 KSquare Media. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // FAQ Accordion functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector("i");
+
+          // Toggle answer visibility
+          answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+
+          // Toggle icon
+          if (icon.classList.contains("fa-chevron-down")) {
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+
+          // Close other open answers
+          document.querySelectorAll(".faq-question").forEach((q) => {
+            if (q !== question) {
+              q.nextElementSibling.style.display = "none";
+              q.querySelector("i").classList.remove("fa-chevron-up");
+              q.querySelector("i").classList.add("fa-chevron-down");
+            }
+          });
+        });
+      });
+
+      // Sticky header
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 60) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking links
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Back to top button
+      const scrollToTopBtn = document.querySelector(".scroll-to-top");
+      window.addEventListener("scroll", () => {
+        scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+      });
+      scrollToTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+    </script>
+  </body>
+</html>
