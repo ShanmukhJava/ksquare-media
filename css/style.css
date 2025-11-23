@@ -1820,8 +1820,9 @@ header.scrolled .nav-links li {
   color: #8b39ea;
 }
 .hero-image {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
+  opacity: 0.85;
   position: absolute;
   top: 55%;
   left: 120%;
