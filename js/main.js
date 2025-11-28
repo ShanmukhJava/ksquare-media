@@ -405,10 +405,11 @@ document.querySelectorAll(".faq-question").forEach((question) => {
     item.classList.toggle("active");
   });
 });
-// Add this script to automatically update the year
-document.querySelector(
-  ".footer-bottom p"
-).innerHTML = `&copy; ${new Date().getFullYear()} KSquare Media. All rights reserved. Premier digital marketing agency.`;
+// Add this script to automatically update the year (guard if element exists)
+const footerBottomP = document.querySelector(".footer-bottom p");
+if (footerBottomP) {
+  footerBottomP.innerHTML = `&copy; ${new Date().getFullYear()} KSquare Media. All rights reserved. Premier digital marketing agency.`;
+}
 
 let lastScroll = 0;
 const header = document.querySelector("header");

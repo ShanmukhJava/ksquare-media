@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
@@ -6,6 +7,9 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+// Serve static files from project root (index.html and assets)
+app.use(express.static(path.join(__dirname, "..")));
 
 app.post("/send-email", (req, res) => {
   const data = req.body;

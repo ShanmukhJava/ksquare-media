@@ -1445,7 +1445,7 @@ header.scrolled .logo-main {
   transition: transform 0.3s ease;
 }
 
-/* Show only K² Media Solutions text */
+/* Show only KSquare Media Solutions text */
 header.scrolled .logo-main h1 {
   font-size: 1.1rem;
   font-weight: 700;
@@ -2069,4 +2069,26 @@ header.scrolled .nav-links li {
   align-items: center;
   text-align: center;
   gap: 8px;
+}
+/* Hero actions (buttons) layout */
+.hero .hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  margin-left: -190px; /* slight left shift */
+}
+
+.hero .hero-actions .btn-primary {
+  margin: 0; /* clear any inline margins */
+}
+
+@media (max-width: 576px) {
+  .hero .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0; /* no shift on mobile */
+  }
 }

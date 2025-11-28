@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Transparent pricing for digital marketing services by KSquare Media. Choose a plan that fits your business and budget." />
+    <title>Pricing - KSquare Media</title>
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      /* Pricing Page Inline Styles (consistent with service pricing blocks) */
+      .pricing-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+      }
+
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .pricing-header h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .pricing-header .underline {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        margin: 0 auto 20px;
+      }
+
+      .pricing-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .pricing-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(138, 45, 226, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid #8e2de2;
+        transform: translateY(-10px);
+      }
+
+      .pricing-card.popular::after {
+        content: "Most Popular";
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        color: white;
+        padding: 5px 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .price {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: #4a00e0;
+      }
+
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+      }
+
+      .pricing-features {
+        margin: 24px 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: #8e2de2;
+      }
+
+      .pricing-features li.disabled {
+        color: #bbb;
+      }
+
+      .pricing-features li.disabled::before {
+        content: "\f00d";
+        color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html">
+          <div class="logo">
+            <div class="logo-main">
+              <img src="images/main_logo.png" alt="KSquare Media Logo" class="company-logo" />
+                <h1 class="fade-in">KSquare Media Hub</h1>
+            </div>
+            <span class="logo-tagline">From clicks to clients. We connect the dots.</span>
+          </div>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="carrers.html">Carrers</a></li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="container">
+        <h1 data-aos="fade-up">Our Pricing</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Flexible plans to fit your goals and budget</p>
+      </div>
+      <div class="banner-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 100%; width: 100%">
+          <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Digital Marketing Plans</h2>
+          <div class="underline"></div>
+          <p>Choose the plan that matches your business stage</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Starter</h3>
+            <div class="price">₹4,999<span>/month</span></div>
+            <p>For new businesses building an online presence</p>
+            <ul class="pricing-features">
+              <li>Keyword Research & Basic SEO</li>
+              <li>2 Social Platforms Managed</li>
+              <li>Monthly Reporting</li>
+              <li class="disabled">Paid Ads Management</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Started</a>
+          </div>
+
+          <!-- Growth Plan (Popular) -->
+          <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+            <h3>Growth</h3>
+            <div class="price">₹14,999<span>/month</span></div>
+            <p>Ideal for growing businesses ready to scale</p>
+            <ul class="pricing-features">
+              <li>Advanced SEO & Local SEO</li>
+              <li>3 Social Platforms Managed</li>
+              <li>Google Analytics & Tag Manager Setup</li>
+              <li>Monthly Reporting & Strategy Calls</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Enterprise</h3>
+            <div class="price">₹19,999<span>/month</span></div>
+            <p>Full solution for established brands</p>
+            <ul class="pricing-features">
+              <li>All Growth Features</li>
+              <li>ORM & Reputation Management</li>
+              <li>Dedicated Account Manager</li>
+              <li>Custom Strategy & Priority Support</li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+              <h2>KSquare <span>Media</span></h2>
+            <p>Transforming digital presence in Andhra Pradesh & Telangana</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="carrers.html">Carrers</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <a href="https://maps.app.goo.gl/toNDFUNNHaPuEM6x9" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">
+                2nd floor, subramanyam complex, Nh5 bypass, beside indian bank,
+                Mangalagiri, Andhra Pradesh 522503
+              </a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:ksquaremedia@gmail.com?subject=Enquiry from Website" target="_blank" rel="noopener noreferrer" title="Send us an email">
+                ksquaremedia@gmail.com
+              </a>
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="https://wa.me/917989428599" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+                +91 79894 28599
+                <i class="fab fa-whatsapp" style="color: #25d366; margin-left: 5px"></i>
+              </a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/ksquaremediaconcept" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/ksquaremediaconcept" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+  </html>
